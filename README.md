@@ -52,7 +52,7 @@ le dossier `public/` (voir `vercel.json`).
 L'adresse du site est définie une seule fois, en haut de `build.js` :
 
 ```js
-const SITE = process.env.SITE_URL || 'https://haitem-bejaoui.vercel.app';
+const SITE = process.env.SITE_URL || 'https://bejaoui-haitem.vercel.app';
 ```
 
 Elle alimente le lien canonique, l'aperçu de partage et le `sitemap.xml`. Si le

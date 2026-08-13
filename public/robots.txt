@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://haitem-bejaoui.vercel.app/sitemap.xml
+Sitemap: https://bejaoui-haitem.vercel.app/sitemap.xml

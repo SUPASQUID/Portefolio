@@ -16,7 +16,7 @@ const { DATA, VEILLE, PROFILE, CERTIFICATIONS, DOCUMENTS } = require('./src/data
 
 /* Adresse publique du site — sert au lien canonique, à Open Graph et au
    sitemap. À changer si le domaine change. */
-const SITE = process.env.SITE_URL || 'https://haitem-bejaoui.vercel.app';
+const SITE = process.env.SITE_URL || 'https://bejaoui-haitem.vercel.app';
 
 const OUT = path.join(__dirname, 'public');
 

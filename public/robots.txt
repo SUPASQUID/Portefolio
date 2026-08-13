@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://haitem-bejaoui.vercel.app/sitemap.xml

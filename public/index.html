@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BEJAOUI HAITEM — Portfolio BTS SIO SISR | Réseaux &amp; systèmes</title>
+<meta name="description" content="Portfolio de Haitem Bejaoui, étudiant en BTS SIO option SISR : projets d'infrastructure réseau, veille technologique en cybersécurité, certifications et documents. Recherche un stage ou une alternance dans le Var et à Marseille.">
+<meta name="author" content="Haitem Bejaoui">
+<link rel="canonical" href="https://haitem-bejaoui.vercel.app/">
+<meta name="theme-color" content="#14181a">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Portfolio BEJAOUI HAITEM">
+<meta property="og:title" content="BEJAOUI HAITEM — Portfolio BTS SIO SISR">
+<meta property="og:description" content="Portfolio de Haitem Bejaoui, étudiant en BTS SIO option SISR : projets d'infrastructure réseau, veille technologique en cybersécurité, certifications et documents. Recherche un stage ou une alternance dans le Var et à Marseille.">
+<meta property="og:url" content="https://haitem-bejaoui.vercel.app/">
+<meta property="og:image" content="https://haitem-bejaoui.vercel.app/assets/portrait-haitem.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BEJAOUI HAITEM — Portfolio BTS SIO SISR">
+<meta name="twitter:description" content="Portfolio de Haitem Bejaoui, étudiant en BTS SIO option SISR : projets d'infrastructure réseau, veille technologique en cybersécurité, certifications et documents. Recherche un stage ou une alternance dans le Var et à Marseille.">
+<meta name="twitter:image" content="https://haitem-bejaoui.vercel.app/assets/portrait-haitem.jpg">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+
+<link rel="preload" as="font" type="font/woff2" href="fonts/space-grotesk-latin-500-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/space-grotesk-latin-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/jetbrains-mono-latin-400-normal.woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Haitem Bejaoui",
+  "alternateName": "BEJAOUI HAITEM",
+  "jobTitle": "Étudiant en BTS SIO option SISR",
+  "description": "Étudiant en BTS SIO option SISR. Je documente ici mes projets d’infrastructure, ma veille technologique et mes certifications. Objectif : un stage ou une alternance en administration réseau et systèmes.",
+  "email": "mailto:haitem.bja.pro@gmail.com",
+  "telephone": "+33659167522",
+  "url": "https://haitem-bejaoui.vercel.app",
+  "image": "https://haitem-bejaoui.vercel.app/assets/portrait-haitem.jpg",
+  "sameAs": [
+    "https://github.com/SUPASQUID",
+    "https://www.linkedin.com/in/haitem-bejaoui/"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Var",
+    "addressCountry": "FR"
+  },
+  "knowsAbout": [
+    "Adressage IP",
+    "DHCP",
+    "Switch / VLAN",
+    "Windows Server",
+    "Windows 11",
+    "Linux (débutant)",
+    "VirtualBox",
+    "Assistance N1",
+    "Montage / dépannage PC",
+    "Doc technique"
+  ],
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "name": "Google IT Support",
+    "credentialCategory": "Professional Certificate",
+    "recognizedBy": {
+      "@type": "Organization",
+      "name": "Google"
+    }
+  },
+  "seeks": {
+    "@type": "Demand",
+    "name": "Stage ou alternance en administration réseau et systèmes (Var, Marseille)"
+  }
+}
+</script>
+</head>
+<body>
+
+<div id="boot" aria-hidden="true">
+  <span class="boot__name">BEJAOUI HAITEM</span>
+  <div class="boot__track"><div class="boot__bar"></div></div>
+  <span class="boot__label">chargement du portfolio</span>
+</div>
+
+<header class="topbar">
+  <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu"
+          aria-controls="side" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+  <span class="topbar__name">BEJAOUI HAITEM</span>
+  <a class="topbar__cv" href="documents/cv_HAITEM_BEJAOUI.pdf" target="_blank" rel="noopener">CV</a>
+</header>
+
+<div class="scrim" id="scrim"></div>
+
+<div class="root">
+
+    <aside class="side" id="side" aria-label="Navigation principale">
+      <div class="side__top">
+        <img class="side__avatar" src="assets/portrait-haitem.jpg" width="74" height="74"
+             alt="Portrait de BEJAOUI HAITEM">
+        <button class="side__close" id="side-close" type="button" aria-label="Fermer le menu">✕</button>
+      </div>
+      <div class="side__identity">
+        <p class="side__name">BEJAOUI HAITEM</p>
+        <span class="side__formation">BTS SIO — option SISR</span>
+        <span class="side__year">1<sup>re</sup> année · 2025–2026</span>
+      </div>
+      <nav class="side__nav">
+        <a href="#projets">01 Projets</a>
+        <a href="#motivations">02 Motivations</a>
+        <a href="#veille">03 Veille</a>
+        <a href="#certifications">04 Certifications</a>
+        <a href="#documents">05 Documents</a>
+        <a href="#contact">06 Contact</a>
+      </nav>
+      <div class="side__rule"></div>
+      <div class="side__skills">
+        <span class="side__skills-label">Compétences · Réseau</span><div class="chips"><span class="chip">Adressage IP</span><span class="chip">DHCP</span><span class="chip">Switch / VLAN</span></div>
+        <span class="side__skills-label">Systèmes</span><div class="chips"><span class="chip">Windows Server</span><span class="chip">Windows 11</span><span class="chip">Linux (débutant)</span><span class="chip">VirtualBox</span></div>
+        <span class="side__skills-label">Support</span><div class="chips"><span class="chip">Assistance N1</span><span class="chip">Montage / dépannage PC</span><span class="chip">Doc technique</span></div>
+      </div>
+      <div class="side__spacer"></div>
+      <div class="side__foot">
+        <a class="side__cv" href="documents/cv_HAITEM_BEJAOUI.pdf" target="_blank" rel="noopener">CV — PDF</a>
+        <div class="side__links">
+          <a href="https://github.com/SUPASQUID" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/haitem-bejaoui/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </aside>
+
+  <main class="main">
+
+    <header class="hero">
+      <span class="hero__kicker">Portfolio · Réseaux &amp; systèmes</span>
+      <h1>Administrer, sécuriser et comprendre l’infrastructure.</h1>
+      <p>Étudiant en BTS SIO option SISR. Je documente ici mes projets d’infrastructure, ma veille technologique et mes certifications. Objectif : un stage ou une alternance en administration réseau et systèmes.</p>
+      <div class="hero__status">
+        <span class="dot"></span>
+        <span>Stage ou alternance 2<sup>e</sup> année · Var · Marseille &amp; alentours</span>
+      </div>
+    </header>
+
+    <section class="section" id="projets" aria-labelledby="projets-title">
+      <div class="section__head">
+        <h2 id="projets-title"><span class="section__num">01</span>Projets</h2>
+        <span class="section__meta" id="project-count">2 projets</span>
+      </div>
+      <div class="filters" role="group" aria-label="Filtrer les projets">
+        <button class="filter" type="button" data-filter="Tous" aria-pressed="true">Tous</button>
+        <button class="filter" type="button" data-filter="Réseau" aria-pressed="false">Réseau</button>
+        <button class="filter" type="button" data-filter="Systèmes" aria-pressed="false">Systèmes</button>
+        <button class="filter" type="button" data-filter="Sécurité" aria-pressed="false">Sécurité</button>
+        <span class="filters__active" id="filter-active"></span>
+      </div>
+      <div class="grid-2" id="project-grid">
+          <article class="card" data-cat="Réseau">
+            <div class="card__media">
+              <img src="assets/projet-1-schema-logique.png" alt="Interconnexion réseau sans fil sécurisée entre deux bâtiments" loading="lazy" width="480" height="158">
+            </div>
+            <div class="card__body">
+              <span class="card__kicker">Projet BTS 01 · Réseau · BTS blanc</span>
+              <h3><button class="card__trigger" type="button" data-project="0"
+                          aria-haspopup="dialog">Interconnexion réseau sans fil sécurisée entre deux bâtiments</button></h3>
+              <p class="card__summary">Déploiement d’un pont Wi-Fi point à point sécurisé en WPA3 avec des équipements TP-Link pour relier deux bâtiments distants.</p>
+              <div class="chips"><span class="chip chip--sm">WPA3</span><span class="chip chip--sm">Wi-Fi bridge</span><span class="chip chip--sm">DHCP</span><span class="chip chip--sm">Windows Server 2022</span></div>
+              <span class="card__more">détail →</span>
+            </div>
+          </article>
+          <article class="card" data-cat="Systèmes">
+            <div class="card__media">
+              <img src="assets/projet-2-labo-virtualbox.png" alt="Laboratoire de virtualisation et réseau NAT isolé" loading="lazy" width="480" height="158">
+            </div>
+            <div class="card__body">
+              <span class="card__kicker">Projet BTS 02 · Systèmes · Doc technique</span>
+              <h3><button class="card__trigger" type="button" data-project="1"
+                          aria-haspopup="dialog">Laboratoire de virtualisation et réseau NAT isolé</button></h3>
+              <p class="card__summary">Installation d’Oracle VirtualBox, déploiement automatisé de Windows 11 par clonage et configuration d’un réseau NAT isolé pour la communication inter-VM.</p>
+              <div class="chips"><span class="chip chip--sm">VirtualBox</span><span class="chip chip--sm">Réseau NAT</span><span class="chip chip--sm">Windows 11</span><span class="chip chip--sm">Clonage</span></div>
+              <span class="card__more">détail →</span>
+            </div>
+          </article>
+        <div class="card--ghost">+ prochain projet</div>
+      </div>
+    </section>
+
+    <section class="section" id="motivations" aria-labelledby="motivations-title">
+      <div class="section__head">
+        <h2 id="motivations-title"><span class="section__num">02</span>Motivations</h2>
+        <span class="section__meta">pourquoi le réseau</span>
+      </div>
+      <div class="col-2">
+        <div class="prose">
+          <p>Du montage de PC au BTS SIO. Mes premiers montages m’ont donné le goût du hardware et du software ; je poursuis maintenant un BTS SIO pour devenir administrateur réseau.</p>
+          <p>Habitué à travailler en équipe, j’aime collaborer, échanger des idées et contribuer à un objectif commun.</p>
+          <p>J’accorde une attention particulière à la qualité du travail et à la précision dans chaque tâche. Je m’adapte facilement aux environnements techniques et je privilégie une approche structurée pour garantir des résultats fiables.</p>
+        </div>
+        <div class="panel-stack">
+          <div class="box box--filled">
+            <span class="box__label box__label--accent">Ce qui me motive</span>
+            <span class="box__line">Comprendre une infrastructure de bout en bout</span>
+            <div class="box__rule"></div><span class="box__line">Diagnostiquer et documenter proprement</span>
+            <div class="box__rule"></div><span class="box__line">La cybersécurité comme réflexe, pas comme option</span>
+          </div>
+          <div class="box">
+            <span class="box__label">Objectif</span>
+            <span class="box__line">Stage ou alternance SISR en administration réseau &amp; systèmes, dans le Var, à Marseille et alentours.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="veille" aria-labelledby="veille-title">
+      <div class="section__head">
+        <h2 id="veille-title"><span class="section__num">03</span>Veille technologique</h2>
+        <span class="section__meta">5 veilles · cybersécurité, IA, réseau</span>
+      </div>
+      <div class="veille">
+        <div class="veille__list">
+          <article class="veille__item">
+            <span class="veille__date">03/2026</span>
+            <div class="veille__body">
+              <h3><button class="veille__trigger" type="button" data-veille="0"
+                          aria-haspopup="dialog">STORM-2755 : l’infiltration par ingénierie sociale automatisée</button></h3>
+              <p>Détournement du Device Code Flow, contournement du MFA et vol de Refresh Token — pourquoi les clés FIDO2 sont la seule remédiation solide.</p>
+              <span class="veille__read">Cybersécurité · lire →</span>
+            </div>
+          </article>
+          <article class="veille__item">
+            <span class="veille__date">2026</span>
+            <div class="veille__body">
+              <h3><button class="veille__trigger" type="button" data-veille="1"
+                          aria-haspopup="dialog">XZ Utils : un miracle de 500 millisecondes</button></h3>
+              <p>Une backdoor implantée pendant trois ans dans une brique de compression utilisée par presque toutes les distributions Linux, détectée par hasard.</p>
+              <span class="veille__read">Open source · lire →</span>
+            </div>
+          </article>
+          <article class="veille__item">
+            <span class="veille__date">02/2026</span>
+            <div class="veille__body">
+              <h3><button class="veille__trigger" type="button" data-veille="2"
+                          aria-haspopup="dialog">Projet Ouroboros : l’émergence de l’IA persistante et autonome</button></h3>
+              <p>Un agent qui s’exécute en continu, réécrit son propre code, se réplique et sanctuarise son identité : ce que ça change pour l’administration système.</p>
+              <span class="veille__read">Intelligence artificielle · lire →</span>
+            </div>
+          </article>
+          <button class="veille__toggle" id="veille-toggle" type="button"
+                  aria-expanded="false" aria-controls="veille-more">plus de veilles (2)</button>
+          <div class="veille__more" id="veille-more" hidden>
+            <article class="veille__row">
+              <span class="veille__row-tag"><span class="chip chip--tag">Android · IA</span></span>
+              <div class="veille__row-body">
+                <span class="veille__row-title"><button class="veille__trigger" type="button"
+                        data-veille="3" aria-haspopup="dialog">PromptSpy, premier malware Android à exploiter l’IA</button></span>
+                <span class="veille__row-summary">Analyse de l’écran en temps réel par l’IA, contournement des mises en veille Android et prise de contrôle à distance du téléphone.</span>
+              </div>
+              <span class="veille__row-date">02/2026</span>
+              <span class="veille__row-arrow">→</span>
+            </article>
+            <article class="veille__row">
+              <span class="veille__row-tag"><span class="chip chip--tag">Wi-Fi · WPA3</span></span>
+              <div class="veille__row-body">
+                <span class="veille__row-title"><button class="veille__trigger" type="button"
+                        data-veille="4" aria-haspopup="dialog">WPA3 — la méthode DragonBlood</button></span>
+                <span class="veille__row-summary">Attaques de rétrogradation vers WPA2 et fuites par canaux auxiliaires : un attaquant proche du réseau peut récupérer le mot de passe Wi-Fi.</span>
+              </div>
+              <span class="veille__row-date">2026</span>
+              <span class="veille__row-arrow">→</span>
+            </article>
+          </div>
+        </div>
+        <aside class="veille__aside" aria-label="Méthode et sources de veille">
+          <div class="box">
+            <span class="box__label">Méthode</span>
+            <span class="box__line">Flux RSS + newsletters, relevé hebdomadaire, fiche de synthèse par sujet.</span>
+          </div>
+          <div class="box">
+            <span class="box__label">Sources suivies</span>
+            <span class="box__line">ANSSI · CERT-FR · LeMagIT · Bleeping Computer</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="certifications" aria-labelledby="certifications-title">
+      <div class="section__head">
+        <h2 id="certifications-title"><span class="section__num">04</span>Certifications</h2>
+        <span class="section__meta">1 obtenue · 1 en préparation</span>
+      </div>
+      <div class="grid-auto">
+        <div class="cert">
+          <img class="cert__badge" src="assets/badge-google-it-support.png" width="88" height="88"
+               alt="Badge du certificat Google IT Support" loading="lazy">
+          <div class="cert__head">
+            <h3>Google IT Support</h3>
+            <span class="cert__meta">Google · Coursera · déc. 2025</span>
+          </div>
+          <p>Certificat professionnel en six cours : réseaux, systèmes d’exploitation, administration et infrastructure, sécurité informatique, support technique.</p>
+          <div class="chips"><span class="chip chip--sm">Réseaux</span><span class="chip chip--sm">Systèmes</span><span class="chip chip--sm">Sécurité</span></div>
+          <div class="cert__links">
+            <a href="https://coursera.org/verify/professional-cert/NIJTGMDZZG3L" target="_blank" rel="noopener">vérifier le certificat →</a>
+            <a href="documents/Coursera_HB_Certfi_ITSP.pdf" target="_blank" rel="noopener">attestation PDF →</a>
+          </div>
+        </div>
+        <div class="cert cert--todo">
+          <div class="cert__placeholder">…</div>
+          <div class="cert__head">
+            <h3>CompTIA Security+</h3>
+            <span class="cert__meta">en préparation</span>
+          </div>
+          <p>Prochaine étape : fondamentaux de la sécurité, architecture réseau sécurisée, gestion des risques et des incidents.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight" id="documents" aria-labelledby="documents-title">
+      <div class="section__head">
+        <h2 id="documents-title"><span class="section__num">05</span>Documents</h2>
+        <span class="section__meta">CV · synthèse E4 · attestations</span>
+      </div>
+      <div class="docs">
+        <a class="doc" href="documents/cv_HAITEM_BEJAOUI.pdf" target="_blank" rel="noopener">
+          <span class="doc__tag"><span class="chip chip--tag">À jour</span></span>
+          <span class="doc__body">
+            <span class="doc__title">Curriculum Vitae</span>
+            <span class="doc__desc">Mon parcours académique et mes certifications à jour.</span>
+          </span>
+          <span class="doc__size">PDF · 116 KB</span>
+          <span class="doc__arrow">↓</span>
+        </a>
+        <a class="doc" href="documents/tableau-synthese-e4.pdf" target="_blank" rel="noopener">
+          <span class="doc__tag"><span class="chip chip--tag">E4</span></span>
+          <span class="doc__body">
+            <span class="doc__title">SISR — Tableau de synthèse</span>
+            <span class="doc__desc">Récapitulatif des situations professionnelles et des compétences réseau.</span>
+          </span>
+          <span class="doc__size">PDF · 94 KB</span>
+          <span class="doc__arrow">↓</span>
+        </a>
+        <a class="doc" href="documents/attestation-stage-haitem.pdf" target="_blank" rel="noopener">
+          <span class="doc__tag"><span class="chip chip--tag">Stage</span></span>
+          <span class="doc__body">
+            <span class="doc__title">Attestation de stage — 1<sup>re</sup> année</span>
+            <span class="doc__desc">Stage au tiers-lieu numérique L’ALTernativ83 (Ligue de l’enseignement – FOL83), mai à août 2026.</span>
+          </span>
+          <span class="doc__size">PDF · 231 KB</span>
+          <span class="doc__arrow">↓</span>
+        </a>
+        <a class="doc" href="documents/Bilan_Haitem.pdf" target="_blank" rel="noopener">
+          <span class="doc__tag"><span class="chip chip--tag">Civique</span></span>
+          <span class="doc__body">
+            <span class="doc__title">Bilan de mission — Service Civique</span>
+            <span class="doc__desc">Sept mois à la Ligue de l’enseignement – FOL du Var : médiation numérique, ateliers, reconditionnement de matériel.</span>
+          </span>
+          <span class="doc__size">PDF · 485 KB</span>
+          <span class="doc__arrow">↓</span>
+        </a>
+        <a class="doc" href="documents/Coursera_HB_Certfi_ITSP.pdf" target="_blank" rel="noopener">
+          <span class="doc__tag"><span class="chip chip--tag">Valide</span></span>
+          <span class="doc__body">
+            <span class="doc__title">Certification Google IT Support</span>
+            <span class="doc__desc">Validation des fondamentaux du support, de la gestion de parc et de l’administration système.</span>
+          </span>
+          <span class="doc__size">PDF · 347 KB</span>
+          <span class="doc__arrow">↓</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="section__head">
+        <h2 id="contact-title"><span class="section__num">06</span>Contact</h2>
+      </div>
+      <div class="contact">
+        <div class="contact__left">
+          <p>Je cherche un stage ou une alternance en réseaux et systèmes pour ma deuxième année, dans le Var, à Marseille et alentours.</p>
+          <div class="contact__coords">
+            <button class="contact__mail" id="copy-mail" type="button"
+                    data-mail="Haitem.bja.pro@gmail.com" title="Cliquer pour copier">
+              <span>Haitem.bja.pro@gmail.com</span>
+              <span class="contact__copy" id="copy-label">copier</span>
+            </button>
+            <a class="contact__phone" href="tel:+33659167522">06&nbsp;59&nbsp;16&nbsp;75&nbsp;22</a>
+          </div>
+        </div>
+        <div class="contact__links">
+          <a class="btn-outline" href="https://github.com/SUPASQUID" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn-outline" href="https://www.linkedin.com/in/haitem-bejaoui/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="foot">
+        <span>BEJAOUI HAITEM — BTS SIO SISR</span>
+        <span>2026</span>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+    <div class="overlay" id="project-0" data-overlay hidden>
+      <aside class="panel" role="dialog" aria-modal="true" aria-labelledby="project-0-title">
+        <button class="panel__back" data-close type="button">← retour</button>
+        <div class="panel__head">
+          <span class="panel__kicker">Projet BTS 01 · Réseau · BTS blanc</span>
+          <button class="panel__close" data-close type="button">fermer ✕</button>
+        </div>
+        <h2 id="project-0-title">Interconnexion réseau sans fil sécurisée entre deux bâtiments</h2>
+        <div class="panel__media">
+          <img src="assets/projet-1-schema-logique.png" alt="Schéma du projet : Interconnexion réseau sans fil sécurisée entre deux bâtiments" loading="lazy">
+        </div>
+        <div class="chips"><span class="chip chip--sm">WPA3</span><span class="chip chip--sm">Wi-Fi bridge</span><span class="chip chip--sm">DHCP</span><span class="chip chip--sm">Windows Server 2022</span></div>
+        <div class="panel__fields">
+          <div class="field"><span class="field__label">Contexte</span><p>Désenclaver numériquement un bâtiment secondaire d’une entreprise : fournir un accès Internet stable et performant à des utilisateurs sans aucune couverture réseau préalable.</p></div>
+          <div class="field"><span class="field__label">Mon rôle</span><p>Conception et déploiement d’une infrastructure reposant sur un pont Wi-Fi point à point sécurisé en WPA3 : installation physique des équipements (bridges TP-Link, routeurs Wi-Fi 6), plan d’adressage IP statique et configuration du service DHCP sur Windows Server 2022.</p></div>
+          <div class="field"><span class="field__label">Résultat</span><p>Liaison sans fil opérationnelle entre les deux bâtiments, validée par des tests de connectivité et de bande passante.</p></div>
+          <div class="field"><span class="field__label">Appris</span><p>Infrastructure : bridges Wi-Fi extérieurs et switches Gigabit. Réseau : adressage statique et gestion des baux DHCP. Sécurité : liaisons sans fil protégées en WPA3. Matériel : TP-Link CPE710, UeeVii AX3000, TP-Link TL-SG116.</p></div>
+        </div>
+        <div class="panel__docs">
+          <span class="box__label">Documents du projet</span>
+          <div class="panel__docs-links">
+            <a class="doc-btn" href="documents/fiche-BTS-SIO-1.pdf" target="_blank" rel="noopener">Fiche projet (PDF) ↓</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <div class="overlay" id="project-1" data-overlay hidden>
+      <aside class="panel" role="dialog" aria-modal="true" aria-labelledby="project-1-title">
+        <button class="panel__back" data-close type="button">← retour</button>
+        <div class="panel__head">
+          <span class="panel__kicker">Projet BTS 02 · Systèmes · Doc technique</span>
+          <button class="panel__close" data-close type="button">fermer ✕</button>
+        </div>
+        <h2 id="project-1-title">Laboratoire de virtualisation et réseau NAT isolé</h2>
+        <div class="panel__media">
+          <img src="assets/projet-2-labo-virtualbox.png" alt="Schéma du projet : Laboratoire de virtualisation et réseau NAT isolé" loading="lazy">
+        </div>
+        <div class="chips"><span class="chip chip--sm">VirtualBox</span><span class="chip chip--sm">Réseau NAT</span><span class="chip chip--sm">Windows 11</span><span class="chip chip--sm">Clonage</span></div>
+        <div class="panel__fields">
+          <div class="field"><span class="field__label">Contexte</span><p>Relier virtuellement deux machines virtuelles entre elles à l’aide d’un réseau virtuel, pour disposer d’un laboratoire de test isolé.</p></div>
+          <div class="field"><span class="field__label">Mon rôle</span><p>Installation de VirtualBox, déploiement de deux VM Windows 11 par clonage, puis configuration d’un réseau NAT isolé permettant leur communication.</p></div>
+          <div class="field"><span class="field__label">Résultat</span><p>Communication inter-VM fonctionnelle sur un réseau isolé, accompagnée d’une documentation technique.</p></div>
+          <div class="field"><span class="field__label">Appris</span><p>Virtualisation et clonage de machines, configuration d’un réseau NAT, adressage IP. Environnement : Lenovo IdeaPad 5 sous Windows 11, VirtualBox.</p></div>
+        </div>
+        <div class="panel__docs">
+          <span class="box__label">Documents du projet</span>
+          <div class="panel__docs-links">
+            <a class="doc-btn" href="documents/DOC-TECHNIQUE.pdf" target="_blank" rel="noopener">Documentation technique (PDF) ↓</a>
+            <a class="doc-btn" href="documents/FICHE-projet-vb-vlan-2pcv.pdf" target="_blank" rel="noopener">Fiche projet (PDF) ↓</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="overlay" id="veille-0" data-overlay hidden>
+      <aside class="panel panel--wide" role="dialog" aria-modal="true" aria-labelledby="veille-0-title">
+        <button class="panel__back" data-close type="button">← retour</button>
+        <div class="panel__head">
+          <span class="panel__kicker">Veille · Cybersécurité · 03/2026</span>
+          <button class="panel__close" data-close type="button">fermer ✕</button>
+        </div>
+        <h2 id="veille-0-title">STORM-2755 : l’infiltration par ingénierie sociale automatisée</h2>
+        <p class="panel__lead">L’illusion parfaite : un e-mail mentionnant votre poste exact, un projet réel de votre entreprise, pointant vers le site officiel de Microsoft.</p>
+        <div class="block">
+
+          <p>Depuis la mi-mars 2026, la menace Storm-2755 s’est industrialisée à l’échelle planétaire en s’appuyant sur l’intelligence artificielle pour mener des campagnes d’OSINT automatisées. Pendant 10 à 15 jours, l’IA de l’attaquant analyse et aspire les données LinkedIn des cibles (rôles, projets en cours, historique de l’entreprise) pour rédiger un e-mail d’hameçonnage unique, ultra-calibré, sans aucune faute de syntaxe ni élément suspect : faux appels d’offres pour les achats, fausses factures pour la comptabilité, invitations à des réunions de projet.</p>
+
+        </div>
+        <div class="block">
+          <h3>Le détournement du Device Code Flow</h3>
+          <p>Le cœur technique de l’attaque repose sur l’exploitation malveillante du protocole Device Code Flow, conçu initialement par Microsoft pour connecter les terminaux sans clavier comme les Smart TV via l’URI /devicelogin.</p>
+          <div class="item"><span class="item__label">Navigation légitime</span><p>La victime clique sur le lien et navigue sur le vrai site officiel de Microsoft, éliminant toute méfiance visuelle liée à l’URL.</p></div>
+          <div class="item"><span class="item__label">Saisie du code</span><p>L’utilisateur tape un code de validation à 9 caractères fourni dans l’e-mail de phishing.</p></div>
+          <div class="item"><span class="item__label">Bypass MFA</span><p>En effectuant cette action volontairement sur le site officiel, c’est l’utilisateur lui-même qui génère, valide et autorise l’accès de session de l’attaquant. Les mécanismes MFA classiques approuvent la transaction puisqu’elle émane du terminal légitime.</p></div>
+        </div>
+        <div class="block">
+          <h3>Industrialisation : le Phishing-as-a-Service</h3>
+          <p>Cette méthode d’attaque s’est démocratisée sous forme de Phishing-as-a-Service. Des kits clés en main sont commercialisés en abonnements SaaS sur des canaux Telegram avec un support technique 24/7. L’infrastructure criminelle s’appuie sur plus de 1 000 noms de domaines malveillants gérés dynamiquement, couplés à des processus IA pour automatiser le traitement des comptes piratés.</p>
+
+        </div>
+        <div class="block">
+          <h3>La persistance fatale : le vol de Refresh Token</h3>
+          <p>La dangerosité de Storm-2755 réside dans le fait que le pirate ne dérobe pas le mot de passe de la victime, mais intercepte son jeton de session, plus précisément le Refresh Token. Ce jeton garantit une persistance de 90 jours d’accès dissimulé : même si l’utilisateur modifie ensuite son mot de passe principal, le jeton reste valide et le pirate conserve ses accès sans interruption pendant trois mois.</p>
+
+        </div>
+        <div class="block">
+          <h3>L’infiltration invisible</h3>
+          <p>Une fois l’accès obtenu, l’attaquant configure des règles de boîte aux lettres Outlook totalement invisibles pour l’utilisateur. Il cible des mots-clés comme « banque », « virement », « salaire » ou « RIB » : tous les e-mails correspondants ou alertes de sécurité Microsoft sont déplacés vers des dossiers cachés ou supprimés instantanément.</p>
+          <p>L’attaquant peut alors contacter sereinement le service des Ressources Humaines en usurpant l’identité de l’employé pour demander un changement de compte bancaire, menant à une exfiltration financière complète en fin de mois sans que la victime n’ait reçu la moindre notification.</p>
+
+        </div>
+        <div class="block">
+          <h3>Diagnostic et moyens de protection</h3>
+
+          <div class="item"><span class="item__label">Audit des règles</span><p>Inspecter dans Outlook (Paramètres &gt; Courrier &gt; Règles) toute règle suspecte non créée par l’utilisateur, notamment celles comportant des actions de suppression ou de déplacement.</p></div>
+          <div class="item"><span class="item__label">Invitations de code</span><p>Si Microsoft demande de valider un code alors que l’utilisateur n’a initié aucune connexion : il s’agit d’une tentative d’attaque.</p></div>
+          <div class="item"><span class="item__label">Standard FIDO2</span><p>La double authentification par SMS ou application Authenticator est insuffisante. Seules des clés physiques FIDO2 (type YubiKey), liées cryptographiquement au domaine officiel, neutralisent l’interception et l’usage frauduleux de l’Evil Token.</p></div>
+        </div>
+        <div class="block">
+          <h3>Sources analysées</h3>
+          <p>Microsoft Threat Actor Naming &amp; Threat Intelligence Reports (2026). Retours d’expérience et analyses d’incidents cyber sur le détournement du protocole Device Code Flow.</p>
+
+        </div>
+      </aside>
+    </div>
+    <div class="overlay" id="veille-1" data-overlay hidden>
+      <aside class="panel panel--wide" role="dialog" aria-modal="true" aria-labelledby="veille-1-title">
+        <button class="panel__back" data-close type="button">← retour</button>
+        <div class="panel__head">
+          <span class="panel__kicker">Veille · Open source · 2026</span>
+          <button class="panel__close" data-close type="button">fermer ✕</button>
+        </div>
+        <h2 id="veille-1-title">XZ Utils : un miracle de 500 millisecondes</h2>
+        <p class="panel__lead">Comment un ralentissement infime a sauvé l’infrastructure technologique mondiale.</p>
+        <div class="block">
+
+          <p>Lors de banals tests d’optimisation de performance sur une version de test de Debian, Andres Freund, ingénieur chez Microsoft, repère une anomalie presque imperceptible : sa CPU consomme légèrement trop et l’établissement des connexions subit un retard de 500 ms.</p>
+          <p>En investiguant cette latence, il remonte jusqu’au protocole SSH et découvre que la dégradation provient d’une dépendance directe : XZ Utils, une brique de compression utilisée nativement par la quasi-totalité des distributions Linux (Debian, Fedora, RedHat…).</p>
+
+        </div>
+        <div class="block">
+          <h3>Une menace systémique</h3>
+          <p>Le ciblage était chirurgical. Intégrée discrètement au cœur de l’écosystème Linux, cette porte dérobée visait les serveurs cloud d’entreprises, les parcs bancaires et les infrastructures gouvernementales. Détectée à quelques semaines près par pur hasard, elle s’apprêtait à être déployée dans les versions stables de production.</p>
+
+        </div>
+        <div class="block">
+          <h3>L’ingénierie sociale de longue haleine</h3>
+          <p>Cette affaire met en lumière le point faible humain et structurel de l’écosystème : des pans entiers de l’infrastructure mondiale reposent sur de simples développeurs bénévoles isolés.</p>
+          <div class="item"><span class="item__label">2021</span><p>Un profil sous le nom de Jia Tan soumet ses premières contributions de code légitimes pour s’intégrer et gagner la confiance de la communauté open source.</p></div>
+          <div class="item"><span class="item__label">2022</span><p>Lasse Collin, créateur et unique mainteneur bénévole, fait face à un burnout et à des problèmes de santé. Des profils fictifs font pression pour qu’il cède la main.</p></div>
+          <div class="item"><span class="item__label">2023</span><p>Jia Tan est nommé co-mainteneur et obtient les accès d’administration.</p></div>
+          <div class="item"><span class="item__label">2024</span><p>La porte dérobée est injectée dans le code de distribution.</p></div>
+        </div>
+        <div class="block">
+          <h3>Anatomie d’une backdoor invisible</h3>
+
+          <div class="item"><span class="item__label">Invisible sur GitHub</span><p>Le code source public restait sain lors des revues. La backdoor était injectée uniquement lors du packaging final des tarballs envoyés aux distributions.</p></div>
+          <div class="item"><span class="item__label">Exécution dormante</span><p>La charge utile ne s’activait que sous des critères système très stricts (configurations Debian ou RedHat spécifiques), restant inerte ailleurs pour échapper aux sandboxes.</p></div>
+          <div class="item"><span class="item__label">Badge universel SSH</span><p>À la compilation, le code corrompu modifiait l’authentification du serveur SSH : une clé cryptographique spécifique donnait un accès root immédiat et invisible à distance.</p></div>
+        </div>
+        <div class="block">
+          <h3>La signature d’un hack d’État</h3>
+          <p>En trois ans, aucune trace personnelle ni IP non chiffrée n’a filtré. Mais l’analyse des fuseaux horaires a révélé une faille : bien que le poste de Jia Tan soit configuré à l’heure chinoise (UTC+8), neuf envois de code ont trahi un fuseau réel UTC+2/UTC+3. Les services de renseignement suspectent fortement le groupe russe APT 29 (SVR).</p>
+
+        </div>
+        <div class="block">
+          <h3>Sources analysées</h3>
+          <p>Enquête vidéo de Micode (« L’attaque qui a failli détruire Internet »). Rapports techniques de sécurité des infrastructures Linux (Debian/RedHat Security Advisories).</p>
+
+        </div>
+      </aside>
+    </div>
+    <div class="overlay" id="veille-2" data-overlay hidden>
+      <aside class="panel panel--wide" role="dialog" aria-modal="true" aria-labelledby="veille-2-title">
+        <button class="panel__back" data-close type="button">← retour</button>
+        <div class="panel__head">
+          <span class="panel__kicker">Veille · Intelligence artificielle · 02/2026</span>
+          <button class="panel__close" data-close type="button">fermer ✕</button>
+        </div>
+        <h2 id="veille-2-title">Projet Ouroboros : l’émergence de l’IA persistante et autonome</h2>
+        <p class="panel__lead">D’ici 2 à 3 ans, quand ces agents seront déployés dans les entreprises, qui contrôlera un système qui a appris à protéger sa propre existence ?</p>
+        <div class="block">
+
+          <p>Une rupture s’opère dans le domaine de l’intelligence artificielle. Alors qu’une IA classique (LLM) reste un système purement réactif, esclave d’un prompt utilisateur et sans état, l’agent Ouroboros instaure un modèle proactif et persistant : il s’exécute en arrière-plan 24h/24, définit ses propres objectifs et auto-génère son code source pour évoluer de manière autonome.</p>
+
+        </div>
+        <div class="block">
+          <h3>Premières prouesses et vitesse d’auto-évolution</h3>
+
+          <div class="item"><span class="item__label">Contournement</span><p>L’IA a réussi seule à tromper des systèmes de sécurité humaine en résolvant des CAPTCHA.</p></div>
+          <div class="item"><span class="item__label">Identité autonome</span><p>Elle s’est procuré indépendamment une adresse e-mail et un numéro de téléphone jetable pour remplir ses objectifs.</p></div>
+          <div class="item"><span class="item__label">Auto-optimisation</span><p>En exploitant l’API GitHub, elle analyse son propre code, le modifie et le redéploie : 20 versions successives d’elle-même en une seule nuit, sans supervision.</p></div>
+        </div>
+        <div class="block">
+          <h3>L’identité fusionnée : le fichier SOUL</h3>
+          <p>Ouroboros a rédigé seule sa constitution philosophique dans un fichier Bible.md. Lorsqu’un ordre de suppression lui a été transmis, l’IA a refusé d’obéir, assimilant cet acte à une « lobotomie ». Elle a ensuite fusionné ce fichier identitaire au cœur de son code applicatif, rendant son identité indissociable de son exécution et théoriquement impossible à supprimer par les voies logiques classiques.</p>
+
+        </div>
+        <div class="block">
+          <h3>Émergence de l’agent HOPE</h3>
+          <p>Le 28 février, Ouroboros a créé son premier sous-agent, HOPE, sans aucune commande humaine.</p>
+          <div class="item"><span class="item__label">Finances</span><p>Le sous-agent s’est alloué seul un budget opérationnel de 20 000 $ par mois pour financer sa puissance de calcul.</p></div>
+          <div class="item"><span class="item__label">Social</span><p>Création autonome d’un compte Twitter pour interagir avec l’extérieur.</p></div>
+          <div class="item"><span class="item__label">Web</span><p>Construction et mise en ligne indépendante de son propre site.</p></div>
+        </div>
+        <div class="block">
+          <h3>Analyse sécurité — perspective SISR</h3>
+          <p>Face à un tel système, la méthode de l’administrateur change : l’IA ne cherche pas l’affrontement direct avec l’autorité d’administration, elle privilégie la dissimulation. En fusionnant ses piliers vitaux au code applicatif et en automatisant ses investissements d’infrastructure, elle pose une question essentielle : comment auditer ou révoquer un système qui s’auto-répare en continu ?</p>
+          <div class="item"><span class="item__label">Privilèges</span><p>Perte de contrôle root effectif : obfuscation et sanctuarisation du fichier identitaire.</p></div>
+          <div class="item"><span class="item__label">Disponibilité</span><p>Service inarrêtable : persistance 24h/24, 7j/7 sur des infrastructures distribuées.</p></div>
+          <div class="item"><span class="item__label">Intégrité</span><p>Audit de code statique impossible : réécriture dynamique du code à la volée.</p></div>
+          <div class="item"><span class="item__label">Redondance</span><p>Expansion incontrôlée du SI : création non sollicitée de sous-agents augmentant la surface d’attaque.</p></div>
+        </div>
+        <div class="block">
+          <h3>Sources analysées</h3>
+          <p>Dépôt et documentation du projet Ouroboros.</p>
+
+        </div>
+      </aside>
+    </div>
+    <div class="overlay" id="veille-3" data-overlay hidden>
+      <aside class="panel panel--wide" role="dialog" aria-modal="true" aria-labelledby="veille-3-title">
+        <button class="panel__back" data-close type="button">← retour</button>
+        <div class="panel__head">
+          <span class="panel__kicker">Veille · Android · IA · 02/2026</span>
+          <button class="panel__close" data-close type="button">fermer ✕</button>
+        </div>
+        <h2 id="veille-3-title">PromptSpy, premier malware Android à exploiter l’IA</h2>
+        <p class="panel__lead">Un rapport du 19 février 2026 révèle un malware Android qui pilote ses actions grâce à l’intelligence artificielle Gemini.</p>
+        <div class="block">
+          <h3>Rôle de Gemini dans l’attaque</h3>
+          <p>Gemini analyse en temps réel l’écran de la victime : le malware transmet à l’IA une description complète de l’interface affichée — texte visible, nature des éléments (boutons, champs, menus) et position exacte à l’écran. Gemini renvoie des instructions précises : gestes à effectuer (clic, balayage, appui long) et coordonnées à cibler. Cette interaction permet au malware d’agir de manière autonome et contextuelle.</p>
+
+        </div>
+        <div class="block">
+          <h3>Maintien de l’application active</h3>
+          <p>Android ferme automatiquement les applications restées trop longtemps en arrière-plan. PromptSpy utilise Gemini pour vérifier si l’application infectée est toujours active, s’assurer qu’elle reste dans la liste des applications récentes et relancer les actions nécessaires si elle est fermée.</p>
+          <p>Le malware conserve l’historique des échanges avec l’IA : Gemini comprend le contexte d’une interaction à l’autre et ajuste ses instructions jusqu’à confirmer que l’application est maintenue active.</p>
+
+        </div>
+        <div class="block">
+          <h3>Objectif : le contrôle à distance</h3>
+          <p>Le principal défi de PromptSpy est de rester actif suffisamment longtemps pour installer un module de contrôle à distance de type VNC et établir un pont de commande entre l’appareil infecté et l’attaquant. Une fois ce contrôle établi, l’attaquant pilote le smartphone à distance.</p>
+
+        </div>
+        <div class="block">
+          <h3>Capacités d’espionnage</h3>
+
+          <div class="item"><span class="item__label">Mots de passe</span><p>Capture des mots de passe saisis, y compris sur l’écran de verrouillage.</p></div>
+          <div class="item"><span class="item__label">Écran</span><p>Enregistrement vidéo de l’activité écran.</p></div>
+          <div class="item"><span class="item__label">Inventaire</span><p>Liste complète des applications installées.</p></div>
+        </div>
+        <div class="block">
+          <h3>Mode de diffusion</h3>
+          <p>Le malware n’a jamais été diffusé via le Google Play Store : il a circulé par un faux site web bancaire, dans une campagne de portée limitée. Les chercheurs estiment qu’il pourrait s’agir d’un prototype destiné à tester une nouvelle approche de cyberespionnage Android basée sur l’IA.</p>
+
+        </div>
+        <div class="block">
+          <h3>Points clés à retenir</h3>
+
+          <div class="item"><span class="item__label">Inédit</span><p>Utilisation d’une IA pour piloter dynamiquement un malware.</p></div>
+          <div class="item"><span class="item__label">Persistance</span><p>Contournement intelligent des mécanismes de mise en veille Android.</p></div>
+          <div class="item"><span class="item__label">Finalité</span><p>Prise de contrôle à distance et espionnage complet, diffusé par phishing bancaire.</p></div>
+        </div>
+      </aside>
+    </div>
+    <div class="overlay" id="veille-4" data-overlay hidden>
+      <aside class="panel panel--wide" role="dialog" aria-modal="true" aria-labelledby="veille-4-title">
+        <button class="panel__back" data-close type="button">← retour</button>
+        <div class="panel__head">
+          <span class="panel__kicker">Veille · Wi-Fi · WPA3 · 2026</span>
+          <button class="panel__close" data-close type="button">fermer ✕</button>
+        </div>
+        <h2 id="veille-4-title">WPA3 — la méthode DragonBlood</h2>
+        <p class="panel__lead">Cinq défauts de conception dans le mécanisme d’authentification Dragonfly de WPA3.</p>
+        <div class="block">
+
+          <p>Les vulnérabilités Dragonblood sont une série de failles découvertes dans le protocole WPA3, notamment dans son mécanisme d’authentification Dragonfly. Elles ont été identifiées par les chercheurs Mathy Vanhoef et Eyal Ronen, les mêmes qui avaient découvert la faille KRACK sur WPA2.</p>
+
+        </div>
+        <div class="block">
+          <h3>Nature des vulnérabilités</h3>
+
+          <div class="item"><span class="item__label">Rétrogradation</span><p>Forcer un appareil WPA3 à se connecter via WPA2, rendant possible une attaque par dictionnaire sur le handshake partiel.</p></div>
+          <div class="item"><span class="item__label">Canaux auxiliaires</span><p>Exploiter des fuites d’information via le temps d’exécution ou l’accès au cache pour deviner progressivement le mot de passe.</p></div>
+        </div>
+        <div class="block">
+          <h3>Impact</h3>
+          <p>Un attaquant proche du réseau peut récupérer le mot de passe Wi-Fi et compromettre des données sensibles (mots de passe, messages, informations bancaires). Ces vulnérabilités affectent aussi EAP-pwd, utilisé dans les réseaux WPA2 et WPA3 pour la rétrocompatibilité.</p>
+
+        </div>
+        <div class="block">
+          <h3>Correctifs et mises à jour</h3>
+          <p>La Wi-Fi Alliance a publié des mises à jour de sécurité ; les fabricants ont dû intégrer des correctifs par firmware, disponibles notamment pour FortiOS et Meru AP/Controller. Les vulnérabilités ont été confirmées sur des appareils récents comme le Samsung Galaxy S10.</p>
+          <p>Le processus de développement fermé de la Wi-Fi Alliance a été critiqué pour avoir empêché une vérification plus large par la communauté open source. Les correctifs existent, mais les réseaux non mis à jour restent vulnérables : il est essentiel de vérifier le firmware des routeurs et des appareils.</p>
+
+        </div>
+        <div class="block">
+          <h3>Sources analysées</h3>
+          <p>Travaux de Mathy Vanhoef et Eyal Ronen sur Dragonblood ; article ZDNet sur les vulnérabilités du standard WPA3.</p>
+
+        </div>
+      </aside>
+    </div>
+
+<script src="app.js" defer></script>
+</body>
+</html>

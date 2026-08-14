@@ -1085,12 +1085,20 @@ button {
   color: var(--text-dim);
 }
 
+/* Cibles tactiles : 24x24 minimum avec un ecart suffisant, a toutes les
+   largeurs — pas seulement sur mobile (WCAG 2.2, critere 2.5.8). */
 .cert__links {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 12px;
   font-family: var(--mono);
   font-size: 11px;
+}
+
+.cert__links a {
+  min-height: 28px;
+  display: flex;
+  align-items: center;
 }
 
 /* --- 05 Documents -------------------------------------------------------- */

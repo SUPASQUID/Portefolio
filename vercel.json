@@ -4,7 +4,6 @@
   "installCommand": "npm install --omit=dev",
   "outputDirectory": "public",
   "framework": null,
-  "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
     {

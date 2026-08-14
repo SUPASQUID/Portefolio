@@ -14,6 +14,7 @@ public/              ← le site publié
   app.js             ← les interactions (panneaux, filtres, menu)
   assets/            ← images optimisées et servies
   documents/         ← les PDF téléchargeables
+  google9fdc...html  ← preuve Google Search Console, ne pas supprimer
   fonts/             ← Space Grotesk et JetBrains Mono
 originaux/assets/    ← les images d'origine, non compressées, conservées ici
 ```

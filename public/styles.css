@@ -111,7 +111,9 @@
   --text-body: #b3bdbf;
   --text-muted: #a4aeb0;
   --text-dim: #8d989c;
-  --text-faint: #66716f;
+  /* Eclairci depuis #66716f : contraste 4,5:1 sur les cartes (norme WCAG AA
+     pour le petit texte). Meme teinte, un cran plus lisible. */
+  --text-faint: #798684;
   --a: #4ee39a;
   --a-hover: #8af0bd;
   --a-wash: rgba(78, 227, 154, 0.1);
@@ -1673,8 +1675,14 @@ button {
     align-items: center;
   }
 
+  /* Les deux liens de certification etaient hauts de 44px et separes de 5px :
+     Lighthouse les signalait comme cibles tactiles trop justes. */
+  .cert__links {
+    gap: 12px;
+  }
+
   .cert__links a {
-    min-height: 44px;
+    min-height: 48px;
     display: flex;
     align-items: center;
   }

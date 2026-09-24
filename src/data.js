@@ -220,7 +220,8 @@ const CERTIFICATIONS = [
 /** Documents téléchargeables (section 05). */
 const DOCUMENTS = [
   { tag: 'À jour', title: 'Curriculum Vitae', description: 'Mon parcours académique et mes certifications à jour.', size: '116 KB', url: 'documents/cv_HAITEM_BEJAOUI.pdf' },
-  { tag: 'E4', title: 'SISR — Tableau de synthèse', description: 'Récapitulatif des situations professionnelles et des compétences réseau.', size: '68 KB', url: 'documents/tableau-synthese-e4.pdf' },
+  { tag: 'E4', title: 'SISR — Tableau de synthèse', description: 'Récapitulatif des situations professionnelles et des compétences réseau.', size: '142 KB', url: 'documents/tableau-synthese-e4.pdf' },
+  { tag: 'Stage', title: 'Attestation de stage — 1re année', description: 'Stage au tiers-lieu numérique L’ALTernativ83 (Ligue de l’enseignement – FOL83), du 6 juillet au 7 août 2026.', size: '929 KB', url: 'documents/attestation-stage-haitem.pdf' },
   { tag: 'Civique', title: 'Bilan de mission — Service Civique', description: 'Sept mois à la Ligue de l\u2019enseignement – FOL du Var : médiation numérique, ateliers, reconditionnement de matériel.', size: '485 KB', url: 'documents/Bilan_Haitem.pdf' },
   { tag: 'Valide', title: 'Certification Google IT Support', description: 'Validation des fondamentaux du support, de la gestion de parc et de l\u2019administration système.', size: '347 KB', url: 'documents/Coursera_HB_Certfi_ITSP.pdf' }
 ];

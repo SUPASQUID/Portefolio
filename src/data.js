@@ -36,6 +36,20 @@ const DATA = [
       { label: 'Documentation technique (PDF)', url: 'documents/DOC-TECHNIQUE.pdf' },
       { label: 'Fiche projet (PDF)', url: 'documents/FICHE-projet-vb-vlan-2pcv.pdf' }
     ]
+  },
+  {
+    cat: 'Systèmes', kicker: 'Projet BTS 03 · Systèmes · Hyperviseur', title: 'Administration d\u2019un hyperviseur Proxmox VE 9',
+    summary: 'Cycle de vie complet d\u2019une machine virtuelle sur Proxmox VE 9, par l\u2019interface web puis en ligne de commande, avec ajustement des ressources et gestion des snapshots.',
+    tags: ['Proxmox VE 9', 'KVM / QEMU', 'Snapshots LVM', 'Ligne de commande'],
+    context: 'Provisionner rapidement un environnement de test sur un hyperviseur, puis en ajuster les ressources — d\u2019abord manuellement, ensuite de façon automatisable.',
+    role: 'Création d\u2019une VM depuis l\u2019interface web, puis pilotage complet en ligne de commande avec qm : démarrage, arrêt, statut et configuration. Passage de la mémoire de 2 à 4 Gio, réduction du processeur à un cœur, création puis suppression d\u2019un snapshot LVM-thin.',
+    result: 'Les douze critères de validation des trois exercices sont atteints. Six incidents rencontrés — dont un verrou de configuration et un arrêt ACPI resté sans effet — ont été diagnostiqués, expliqués et documentés.',
+    learned: 'L\u2019interface web et la commande qm ne sont pas deux produits mais deux clients de la même API REST : les deux écrivent dans le même fichier, /etc/pve/qemu-server/101.conf. Une machine virtuelle tient en dix-neuf lignes de texte. Snapshots LVM-thin en copie sur écriture, allocation paresseuse de la mémoire et ballooning. La moitié des commandes de l\u2019énoncé n\u2019existaient pas dans le produit : retrouver les commandes réelles dans la documentation fait partie du travail d\u2019administration.',
+    image: 'assets/projet-3-proxmox.png',
+    docs: [
+      { label: 'Compte-rendu de TP (PDF)', url: 'documents/TP01-compte-rendu.pdf' },
+      { label: 'Documentation technique (PDF)', url: 'documents/TP01-documentation-technique.pdf' }
+    ]
   }
 ];
 
@@ -152,10 +166,10 @@ const VEILLE = [
 const PROFILE = {
   name: 'BEJAOUI HAITEM',
   formation: 'BTS SIO — option SISR',
-  year: '1re année · 2025–2026',
+  year: '2e année · 2026–2027',
   headline: 'Administrer, sécuriser et comprendre l\u2019infrastructure.',
-  intro: 'Étudiant en BTS SIO option SISR. Je documente ici mes projets d\u2019infrastructure, ma veille technologique et mes certifications. Objectif : un stage ou une alternance en administration réseau et systèmes.',
-  status: 'Stage ou alternance 2e année · Var · Marseille & alentours',
+  intro: 'Étudiant en BTS SIO option SISR. Je documente ici mes projets d\u2019infrastructure, ma veille technologique et mes certifications. Objectif : une alternance en administration réseau et systèmes.',
+  status: 'Alternance recherchée · Var · Marseille & alentours',
   photo: 'assets/portrait-haitem.jpg',
   email: 'Haitem.bja.pro@gmail.com',
   phone: { display: '06 59 16 75 22', tel: '+33659167522' },
@@ -164,7 +178,7 @@ const PROFILE = {
   cv: 'documents/cv_HAITEM_BEJAOUI.pdf',
   skills: [
     { group: 'Réseau', items: ['Adressage IP', 'DHCP', 'Switch / VLAN'] },
-    { group: 'Systèmes', items: ['Windows Server', 'Windows 11', 'Linux (débutant)', 'VirtualBox'] },
+    { group: 'Systèmes', items: ['Windows Server', 'Windows 11', 'Linux (débutant)', 'VirtualBox', 'Proxmox VE'] },
     { group: 'Support', items: ['Assistance N1', 'Montage / dépannage PC', 'Doc technique'] }
   ],
   motivations: {
@@ -178,7 +192,7 @@ const PROFILE = {
       'Diagnostiquer et documenter proprement',
       'La cybersécurité comme réflexe, pas comme option'
     ],
-    objective: 'Stage ou alternance SISR en administration réseau & systèmes, dans le Var, à Marseille et alentours.'
+    objective: 'Alternance SISR en administration réseau & systèmes, dans le Var, à Marseille et alentours.'
   },
   veilleMethod: 'Flux RSS + newsletters, relevé hebdomadaire, fiche de synthèse par sujet.',
   veilleSources: ['ANSSI', 'CERT-FR', 'LeMagIT', 'Bleeping Computer']
@@ -206,8 +220,7 @@ const CERTIFICATIONS = [
 /** Documents téléchargeables (section 05). */
 const DOCUMENTS = [
   { tag: 'À jour', title: 'Curriculum Vitae', description: 'Mon parcours académique et mes certifications à jour.', size: '116 KB', url: 'documents/cv_HAITEM_BEJAOUI.pdf' },
-  { tag: 'E4', title: 'SISR — Tableau de synthèse', description: 'Récapitulatif des situations professionnelles et des compétences réseau.', size: '94 KB', url: 'documents/tableau-synthese-e4.pdf' },
-  { tag: 'Stage', title: 'Attestation de stage — 1re année', description: 'Stage au tiers-lieu numérique L\u2019ALTernativ83 (Ligue de l\u2019enseignement – FOL83), mai à août 2026.', size: '231 KB', url: 'documents/attestation-stage-haitem.pdf' },
+  { tag: 'E4', title: 'SISR — Tableau de synthèse', description: 'Récapitulatif des situations professionnelles et des compétences réseau.', size: '68 KB', url: 'documents/tableau-synthese-e4.pdf' },
   { tag: 'Civique', title: 'Bilan de mission — Service Civique', description: 'Sept mois à la Ligue de l\u2019enseignement – FOL du Var : médiation numérique, ateliers, reconditionnement de matériel.', size: '485 KB', url: 'documents/Bilan_Haitem.pdf' },
   { tag: 'Valide', title: 'Certification Google IT Support', description: 'Validation des fondamentaux du support, de la gestion de parc et de l\u2019administration système.', size: '347 KB', url: 'documents/Coursera_HB_Certfi_ITSP.pdf' }
 ];

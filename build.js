@@ -443,7 +443,7 @@ ${sidebar()}
       </div>
       <div class="contact">
         <div class="contact__left">
-          <p>Je cherche un stage ou une alternance en réseaux et systèmes pour ma deuxième année, dans le Var, à Marseille et alentours.</p>
+          <p>Je cherche une alternance en réseaux et systèmes pour ma deuxième année, dans le Var, à Marseille et alentours.</p>
           <div class="contact__coords">
             <button class="contact__mail" id="copy-mail" type="button"
                     data-mail="${esc(PROFILE.email)}" title="Cliquer pour copier">

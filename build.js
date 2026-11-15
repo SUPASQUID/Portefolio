@@ -114,7 +114,7 @@ const sidebar = () => `
 
 /** Barre de compétence : niveau sur 4, rendu en segments. */
 const skillBar = (s) => `
-          <div class="bar">
+          <div class="bar" data-level="${s.level}">
             <div class="bar__head">
               <span class="bar__label">${esc(s.label)}</span>
               <span class="bar__level" aria-hidden="true">${s.level}/4</span>

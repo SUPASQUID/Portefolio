@@ -98,26 +98,29 @@
 /* --- Jetons de design ---------------------------------------------------- */
 
 :root {
-  --bg: #14181a;
-  --surface: #181d1f;
-  --image-bg: #f4f6f7;
-  --border: #2c3336;
-  --divider: #22282a;
-  --control: #3b4448;
-  --control-hover: #4a5559;
-  --text: #e7ecea;
-  --text-strong: #d5dcdd;
-  --text-control: #c3ccce;
-  --text-body: #b3bdbf;
-  --text-muted: #a4aeb0;
-  --text-dim: #8d989c;
-  /* Eclairci depuis #66716f : contraste 4,5:1 sur les cartes (norme WCAG AA
-     pour le petit texte). Meme teinte, un cran plus lisible. */
-  --text-faint: #798684;
-  --a: #4ee39a;
-  --a-hover: #8af0bd;
-  --a-wash: rgba(78, 227, 154, 0.1);
-  --scrim: rgba(10, 13, 14, 0.72);
+  /* Theme clair sobre : gris ardoise + bleu. Chaque jeton de texte a ete
+     verifie au contraste sur --bg ET sur --surface : tous au minimum AA
+     (4,5:1) pour le petit texte, la plupart AAA. Ne pas eclaircir un
+     --text-* sans recalculer le ratio. */
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --image-bg: #eef1f5;
+  --border: #dde3ea;
+  --divider: #e9edf2;
+  --control: #e4e9ef;
+  --control-hover: #d6dde6;
+  --text: #1c2430;
+  --text-strong: #111820;
+  --text-control: #2c3845;
+  --text-body: #3d4a59;
+  --text-muted: #55636f;
+  --text-dim: #66737f;
+  /* 4,69:1 sur --bg : plancher AA. En dessous de #65717d, ca echoue. */
+  --text-faint: #65717d;
+  --a: #1f5f9e;
+  --a-hover: #174b7e;
+  --a-wash: rgba(31, 95, 158, 0.08);
+  --scrim: rgba(20, 28, 38, 0.55);
 
   --sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -175,7 +178,7 @@ button {
 }
 
 ::selection {
-  background: rgba(78, 227, 154, 0.25);
+  background: rgba(31, 95, 158, 0.18);
 }
 
 :focus-visible {
@@ -1848,5 +1851,526 @@ button {
   body {
     background: #fff;
     color: #000;
+  }
+}
+
+/* ==========================================================================
+   Rubriques imposees par la maquette de l ecole
+   Accueil (cartes identite + barres de competences), realisations en
+   entreprise, cybersecurite, outils de veille, pages legales.
+   ========================================================================== */
+
+/* --- Numero dans le menu lateral ----------------------------------------- */
+
+.side__nav a {
+  display: flex;
+  gap: 10px;
+}
+
+.side__nav-num {
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.side__nav a:hover .side__nav-num {
+  color: var(--a);
+}
+
+/* --- Accueil : cartes identite ------------------------------------------- */
+
+.section--first {
+  padding-top: 0;
+}
+
+.ident {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(236px, 1fr));
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.ident__card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ident__card--accent {
+  border-color: var(--a);
+  background: var(--a-wash);
+}
+
+.ident__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.ident__card--accent .ident__label {
+  color: var(--a);
+}
+
+.ident__card p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+
+.ident__cv {
+  font-family: var(--mono);
+  font-size: 11px;
+  margin-top: auto;
+}
+
+/* --- Accueil : barres de competences ------------------------------------- */
+
+.bars {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--divider);
+}
+
+.bars__label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 18px;
+}
+
+.bars__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px 28px;
+}
+
+.bar__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 7px;
+}
+
+.bar__label {
+  font-size: 13px;
+  color: var(--text);
+}
+
+.bar__level {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+
+.bar__track {
+  display: flex;
+  gap: 4px;
+}
+
+.bar__seg {
+  height: 5px;
+  flex: 1;
+  border-radius: 2px;
+  background: var(--control);
+}
+
+.bar__seg--on {
+  background: var(--a);
+}
+
+.bar__note {
+  display: block;
+  margin-top: 7px;
+  font-size: 11.5px;
+  color: var(--text-faint);
+  line-height: 1.45;
+}
+
+/* --- Realisations en entreprise ------------------------------------------ */
+
+.exps {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.exp {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+
+.exp__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.exp__kicker {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--a);
+  margin-bottom: 6px;
+}
+
+.exp__org {
+  margin: 0 0 4px;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--text-strong);
+}
+
+.exp__meta {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.exp__when {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.exp__period {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--text);
+}
+
+.exp__duration {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--text-faint);
+}
+
+.exp__about {
+  margin: 16px 0 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+
+.exp__facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
+}
+
+.fact__label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 3px;
+}
+
+.fact__value {
+  font-size: 12.5px;
+  color: var(--text-body);
+}
+
+.exp__missions-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin: 18px 0 12px;
+}
+
+.exp__missions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mission {
+  display: flex;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+
+.mission__num {
+  font-family: var(--mono);
+  font-size: 11px;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--a);
+  color: #ffffff;
+}
+
+.mission__body h4 {
+  margin: 0 0 5px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.mission__trigger {
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  color: var(--text-strong);
+  cursor: pointer;
+  font: inherit;
+}
+
+.mission__trigger:hover {
+  color: var(--a);
+}
+
+.mission__body p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+
+.mission__more {
+  display: block;
+  margin-top: 7px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--a);
+}
+
+/* --- Cybersecurite ------------------------------------------------------- */
+
+.cyber {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cyber--todo {
+  background: none;
+  border-style: dashed;
+}
+
+.cyber__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.cyber__state {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--a);
+}
+
+.cyber--todo .cyber__state {
+  color: var(--text-faint);
+}
+
+.cyber__org {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-faint);
+}
+
+.cyber h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-strong);
+}
+
+.cyber p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+
+.cyber__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: auto;
+  padding-top: 6px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+}
+
+.cyber__date {
+  color: var(--text-faint);
+}
+
+.grid-auto--certs {
+  margin-top: 16px;
+}
+
+/* --- Outils de veille ---------------------------------------------------- */
+
+.tool {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tool__name {
+  font-size: 13px;
+  color: var(--text);
+}
+
+.tool__role {
+  font-size: 11.5px;
+  color: var(--text-faint);
+  line-height: 1.45;
+}
+
+/* --- Encadre cliquable --------------------------------------------------- */
+
+.box--link {
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+
+.box--link:hover {
+  border-color: var(--a);
+}
+
+/* --- Pied de page -------------------------------------------------------- */
+
+.foot {
+  flex-wrap: wrap;
+}
+
+.foot__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.foot__sign {
+  display: flex;
+  gap: 16px;
+  color: var(--text-faint);
+}
+
+/* --- Pages legales ------------------------------------------------------- */
+
+.topbar__back {
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.legal {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 92px 24px 56px;
+}
+
+.legal__head {
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--divider);
+  margin-bottom: 8px;
+}
+
+.legal__kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--a);
+}
+
+.legal h1 {
+  margin: 10px 0 12px;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--text-strong);
+}
+
+.legal__intro {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--text-muted);
+}
+
+.legal__block {
+  margin-top: 28px;
+}
+
+.legal__block h2 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-strong);
+}
+
+.legal__block p {
+  margin: 0 0 10px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--text-body);
+}
+
+.legal .foot {
+  margin-top: 44px;
+}
+
+/* --- Mobile -------------------------------------------------------------- */
+
+@media (max-width: 720px) {
+  .exp {
+    padding: 16px;
+  }
+
+  .exp__when {
+    text-align: left;
+  }
+
+  .bars__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .legal {
+    padding: 80px 18px 40px;
+  }
+
+  .legal h1 {
+    font-size: 22px;
   }
 }

@@ -162,6 +162,7 @@
 
   bindOpener('[data-project]', 'project');
   bindOpener('[data-veille]', 'veille');
+  bindOpener('[data-mission]', 'mission');
 
   /* Ouverture directe via l'adresse (#project-0, #veille-2). */
   if (window.location.hash) {

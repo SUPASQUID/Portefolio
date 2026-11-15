@@ -13,7 +13,7 @@
 
 const DATA = [
   {
-    cat: 'Réseau', kicker: 'Projet BTS 01 · Réseau · BTS blanc', title: 'Interconnexion réseau sans fil sécurisée entre deux bâtiments',
+    year: '1re année', cat: 'Réseau', kicker: 'Projet BTS 01 · Réseau · BTS blanc', title: 'Interconnexion réseau sans fil sécurisée entre deux bâtiments',
     summary: 'Déploiement d\u2019un pont Wi-Fi point à point sécurisé en WPA3 avec des équipements TP-Link pour relier deux bâtiments distants.',
     tags: ['WPA3', 'Wi-Fi bridge', 'DHCP', 'Windows Server 2022'],
     context: 'Désenclaver numériquement un bâtiment secondaire d\u2019une entreprise : fournir un accès Internet stable et performant à des utilisateurs sans aucune couverture réseau préalable.',
@@ -24,7 +24,7 @@ const DATA = [
     docs: [{ label: 'Fiche projet (PDF)', url: 'documents/fiche-BTS-SIO-1.pdf' }]
   },
   {
-    cat: 'Systèmes', kicker: 'Projet BTS 02 · Systèmes · Doc technique', title: 'Laboratoire de virtualisation et réseau NAT isolé',
+    year: '1re année', cat: 'Systèmes', kicker: 'Projet BTS 02 · Systèmes · Doc technique', title: 'Laboratoire de virtualisation et réseau NAT isolé',
     summary: 'Installation d\u2019Oracle VirtualBox, déploiement automatisé de Windows 11 par clonage et configuration d\u2019un réseau NAT isolé pour la communication inter-VM.',
     tags: ['VirtualBox', 'Réseau NAT', 'Windows 11', 'Clonage'],
     context: 'Relier virtuellement deux machines virtuelles entre elles à l\u2019aide d\u2019un réseau virtuel, pour disposer d\u2019un laboratoire de test isolé.',
@@ -38,7 +38,7 @@ const DATA = [
     ]
   },
   {
-    cat: 'Systèmes', kicker: 'Projet BTS 03 · Systèmes · Hyperviseur', title: 'Administration d\u2019un hyperviseur Proxmox VE 9',
+    year: '2e année', cat: 'Systèmes', kicker: 'Projet BTS 03 · Systèmes · Hyperviseur', title: 'Administration d\u2019un hyperviseur Proxmox VE 9',
     summary: 'Cycle de vie complet d\u2019une machine virtuelle sur Proxmox VE 9, par l\u2019interface web puis en ligne de commande, avec ajustement des ressources et gestion des snapshots.',
     tags: ['Proxmox VE 9', 'KVM / QEMU', 'Snapshots LVM', 'Ligne de commande'],
     context: 'Provisionner rapidement un environnement de test sur un hyperviseur, puis en ajuster les ressources — d\u2019abord manuellement, ensuite de façon automatisable.',
@@ -51,6 +51,66 @@ const DATA = [
       { label: 'Documentation technique (PDF)', url: 'documents/TP01-documentation-technique.pdf' }
     ]
   }
+];
+
+/**
+ * ENTREPRISE : réalisations en milieu professionnel.
+ *
+ * Les faits (dates, nom exact de la structure, encadrant) sont repris de
+ * l’attestation de stage signée — public/documents/attestation-stage-haitem.pdf.
+ * Ne pas les retoucher sans relire ce PDF : des dates fausses ont déjà
+ * circulé dans les versions précédentes du dossier.
+ *
+ * Les chiffres sont volontairement modestes et vérifiables. Ne pas les
+ * gonfler : ils doivent rester défendables à l’oral.
+ */
+const ENTREPRISE = [
+  {
+    year: '1re année',
+    kind: 'Stage',
+    org: 'Tiers-lieu numérique L’ALTernativ83',
+    orgMeta: 'Ligue de l’enseignement – FOL 83 · Toulon (Var)',
+    period: 'du 6 juillet au 7 août 2026',
+    duration: '5 semaines',
+    supervisor: 'Merlin HICKS, chargé de mission à l’engagement jeunesse',
+    about:
+      'L’ALTernativ83 est un tiers-lieu numérique porté par la Ligue de l’enseignement – FOL 83, association loi 1901. Sa mission : lutter contre la fracture numérique, en combinant la revalorisation de matériel informatique (économie circulaire) et l’accompagnement des publics fragiles vers l’autonomie numérique (e-inclusion).',
+    missions: [
+      {
+        cat: 'Support',
+        title: 'Revalorisation de postes informatiques',
+        summary:
+          'Remise en service d’ordinateurs usagés pour les bénéficiaires de l’association : diagnostic, réparation, effacement sécurisé des données et réinstallation du système.',
+        tags: ['Diagnostic matériel', 'Windows / Linux', 'Effacement RGPD', 'Économie circulaire'],
+        context:
+          'L’association collecte des ordinateurs usagés et les remet en état pour les mettre à disposition de publics en précarité, à bas coût ou gratuitement. La démarche est double : réduire les déchets électroniques et rendre l’équipement accessible.',
+        role:
+          'Prise en charge d’un poste de bout en bout : réception et diagnostic matériel, nettoyage et renouvellement de la pâte thermique, remplacement des pièces défectueuses (SSD, RAM, ventilateurs), effacement sécurisé des données de l’ancien propriétaire dans le respect du RGPD, réinstallation de Windows ou d’une distribution Linux légère selon l’état de la machine, puis tests de stabilité avant remise en service.',
+        result:
+          'Quelques ordinateurs revalorisés et remis à disposition des bénéficiaires. Cas traités : poste bloqué au démarrage (réinstallation complète), portable en surchauffe (nettoyage et pâte thermique), SSD défaillant (diagnostic et remplacement), machine trop lente (passage sur Linux léger).',
+        learned:
+          'Un diagnostic méthodique coûte moins cher qu’un remplacement au hasard. L’effacement sécurisé des données n’est pas une option mais une obligation quand la machine change de main. Choisir le système d’exploitation en fonction du matériel disponible, et non l’inverse.',
+      },
+      {
+        cat: 'Support',
+        title: 'Médiation numérique et e-inclusion',
+        summary:
+          'Accompagnement des usagers du tiers-lieu et animation d’ateliers d’initiation, auprès de publics très éloignés de l’informatique.',
+        tags: ['Accompagnement utilisateur', 'Animation d’ateliers', 'Pédagogie', 'Sensibilisation'],
+        context:
+          'La fracture numérique exclut concrètement des gens de démarches devenues obligatoires en ligne. Le tiers-lieu accueille des seniors, des parents, des jeunes adultes et des personnes en situation de précarité pour les rendre autonomes sur les outils du quotidien.',
+        role:
+          'Accueil et accompagnement individuel des usagers, puis contribution à l’animation d’ateliers collectifs : initiation à Windows (souris, clavier, gestion des fichiers), navigation Internet et moteurs de recherche, usage de la messagerie et des pièces jointes, prise en main d’un smartphone, et sensibilisation à la cybersécurité (mots de passe, hameçonnage, protection des données).',
+        result:
+          '15 à 20 personnes accompagnées sur la durée du stage, avec des retours globalement positifs.',
+        learned:
+          'Expliquer l’informatique à quelqu’un qui n’en a jamais fait est une compétence technique à part entière : il faut renoncer au vocabulaire métier sans pour autant simplifier faux. L’écoute précède le diagnostic — la demande formulée est rarement le vrai besoin. C’est ce qui m’a confirmé mon intérêt pour le support utilisateur.',
+      },
+    ],
+    docs: [
+      { label: 'Attestation de stage (PDF)', url: 'documents/attestation-stage-haitem.pdf' },
+    ],
+  },
 ];
 
 const VEILLE = [
@@ -195,8 +255,73 @@ const PROFILE = {
     objective: 'Alternance SISR en administration réseau & systèmes, dans le Var, à Marseille et alentours.'
   },
   veilleMethod: 'Flux RSS + newsletters, relevé hebdomadaire, fiche de synthèse par sujet.',
-  veilleSources: ['ANSSI', 'CERT-FR', 'LeMagIT', 'Bleeping Computer']
+  veilleSources: ['ANSSI', 'CERT-FR', 'LeMagIT', 'Bleeping Computer'],
+
+  /* Outils de veille. Pearltrees sert de collecteur : l’URL publique du
+     compte reste à renseigner — mettre l’adresse dans `url` et le lien
+     apparaîtra automatiquement. */
+  veilleTools: [
+    { name: 'Pearltrees', role: 'Collecte et classement thématique des sources', url: null },
+    { name: 'Flux RSS', role: 'Suivi quotidien des bulletins ANSSI et CERT-FR', url: null },
+    { name: 'Newsletters', role: 'Veille hebdomadaire LeMagIT et Bleeping Computer', url: null },
+  ],
+
+  /* Barres de compétences (niveau sur 4). Auto-évaluation : à ajuster avant
+     l’oral, chaque niveau doit pouvoir être défendu par un projet ou une
+     expérience présente sur ce site. */
+  skillBars: [
+    { label: 'Support et dépannage', level: 4, note: 'Service Civique, stage, interventions régulières' },
+    { label: 'Réseau — adressage, DHCP, VLAN', level: 3, note: 'Pont Wi-Fi, DHCP sur Windows Server' },
+    { label: 'Virtualisation — VirtualBox, Proxmox', level: 3, note: 'Laboratoire NAT, hyperviseur Proxmox VE 9' },
+    { label: 'Systèmes Windows — client et serveur', level: 3, note: 'Windows 11, Windows Server 2022' },
+    { label: 'Documentation technique', level: 3, note: 'Comptes-rendus et fiches projet joints' },
+    { label: 'Linux', level: 2, note: 'Distributions légères, ligne de commande Proxmox' },
+    { label: 'Sécurité et RGPD', level: 2, note: 'WPA3, effacement sécurisé, veille cyber' },
+  ],
 };
+
+/**
+ * CYBERSECURITE — rubrique imposée par la maquette du portfolio.
+ *
+ * `state` vaut 'obtenue' ou 'à suivre'. Les trois premières entrées sont
+ * celles que la maquette demande nommément : tant qu’elles ne sont pas
+ * faites, elles restent affichées honnêtement comme à suivre. Pour en
+ * valider une, passer `state` à 'obtenue', ajouter `date` et déposer
+ * l’attestation dans public/documents/ puis renseigner `pdf`.
+ */
+const CYBER = [
+  {
+    state: 'à suivre',
+    title: 'SecNumAcadémie',
+    org: 'ANSSI',
+    description:
+      'MOOC de référence de l’Agence nationale de la sécurité des systèmes d’information : panorama de la sécurité du numérique, authentification, sécurité des postes et des réseaux, usages professionnels.',
+  },
+  {
+    state: 'à suivre',
+    title: 'Atelier RGPD',
+    org: 'CNIL',
+    description:
+      'Formation en ligne de la CNIL sur le règlement général sur la protection des données : principes, droits des personnes, responsabilités du responsable de traitement et du sous-traitant.',
+  },
+  {
+    state: 'à suivre',
+    title: 'Défis et enjeux de la cybersécurité',
+    org: 'MOOC',
+    description:
+      'Enjeux stratégiques et organisationnels de la cybersécurité : analyse du risque, gouvernance, réponse à incident.',
+  },
+  {
+    state: 'obtenue',
+    title: 'Google IT Support',
+    org: 'Google · Coursera',
+    date: 'décembre 2025',
+    description:
+      'Certificat professionnel en six cours, dont un volet complet de sécurité informatique : chiffrement, authentification, durcissement des postes et des réseaux.',
+    pdf: 'documents/Coursera_HB_Certfi_ITSP.pdf',
+    verifyUrl: 'https://coursera.org/verify/professional-cert/NIJTGMDZZG3L',
+  },
+];
 
 /** Certifications. */
 const CERTIFICATIONS = [
@@ -226,4 +351,102 @@ const DOCUMENTS = [
   { tag: 'Valide', title: 'Certification Google IT Support', description: 'Validation des fondamentaux du support, de la gestion de parc et de l\u2019administration système.', size: '347 KB', url: 'documents/Coursera_HB_Certfi_ITSP.pdf' }
 ];
 
-if (typeof module !== 'undefined') module.exports = { DATA, VEILLE, PROFILE, CERTIFICATIONS, DOCUMENTS };
+/**
+ * LEGAL — les quatre pages de pied de page exigées par la maquette.
+ *
+ * Le contenu décrit ce que le site fait RÉELLEMENT : site statique, aucun
+ * cookie, aucun traceur, aucun script tiers, polices auto-hébergées, aucun
+ * formulaire. Vérifié par audit du code. Si un jour un formulaire, une
+ * mesure d’audience ou un service tiers est ajouté, ces pages doivent être
+ * corrigées — sinon elles deviennent fausses, ce qui est pire que rien.
+ *
+ * À compléter : l’adresse postale complète de l’hébergeur, que je n’ai pas
+ * vérifiée. La mentionner exactement si tu veux être strictement conforme.
+ */
+const LEGAL = [
+  {
+    slug: 'mentions-legales',
+    title: 'Mentions légales',
+    intro: 'Informations relatives à l’éditeur et à l’hébergeur de ce site.',
+    blocks: [
+      { heading: 'Éditeur du site', paras: [
+        'Ce site est édité à titre personnel par Haitem Bejaoui, étudiant en BTS Services Informatiques aux Organisations, option SISR.',
+        'Contact : haitem.bja.pro@gmail.com',
+      ] },
+      { heading: 'Objet du site', paras: [
+        'Ce site est un portfolio scolaire et professionnel. Il présente des travaux réalisés dans le cadre d’une formation en BTS SIO, une veille technologique et des documents personnels. Il n’a aucune activité commerciale et ne propose ni vente ni service payant.',
+      ] },
+      { heading: 'Hébergement', paras: [
+        'Le site est hébergé par Vercel Inc. (États-Unis) — vercel.com.',
+      ] },
+      { heading: 'Propriété intellectuelle', paras: [
+        'Les textes, schémas et documents présentés sont l’œuvre de l’auteur du site, sauf mention contraire. Les sources externes citées dans la veille technologique appartiennent à leurs auteurs respectifs et sont mentionnées à titre de référence.',
+      ] },
+    ],
+  },
+  {
+    slug: 'confidentialite',
+    title: 'Politique de confidentialité',
+    intro: 'Ce site ne collecte aucune donnée personnelle. Voici le détail.',
+    blocks: [
+      { heading: 'Aucune collecte de données', paras: [
+        'Ce site est entièrement statique : il se contente d’envoyer des pages déjà écrites. Il ne comporte aucun formulaire, aucun compte utilisateur, aucune base de données et aucun outil de mesure d’audience.',
+        'Aucune donnée personnelle n’est donc collectée, enregistrée ni transmise à un tiers lors de la consultation.',
+      ] },
+      { heading: 'Aucun service tiers', paras: [
+        'Le site ne charge aucun script externe. Les polices de caractères sont hébergées sur le site lui-même et ne sont pas appelées depuis un serveur tiers. Aucune publicité, aucun bouton de réseau social embarqué, aucun lecteur vidéo externe.',
+      ] },
+      { heading: 'Liens sortants', paras: [
+        'Le site contient des liens vers des plateformes externes (GitHub, LinkedIn, Coursera). En suivant un de ces liens, vous quittez ce site : la politique de confidentialité de la plateforme concernée s’applique alors, et non celle-ci.',
+      ] },
+      { heading: 'Journaux techniques de l’hébergeur', paras: [
+        'L’hébergeur du site peut conserver des journaux de connexion techniques (adresse IP, date, page demandée) pour assurer le fonctionnement et la sécurité du service. Ce traitement relève de l’hébergeur et non de l’éditeur du site.',
+      ] },
+      { heading: 'Vos droits', paras: [
+        'Aucune donnée n’étant collectée par l’éditeur, il n’y a rien à consulter, rectifier ou supprimer. Pour toute question, vous pouvez écrire à haitem.bja.pro@gmail.com.',
+      ] },
+    ],
+  },
+  {
+    slug: 'cookies',
+    title: 'Utilisation des cookies',
+    intro: 'Ce site ne dépose aucun cookie.',
+    blocks: [
+      { heading: 'Aucun cookie déposé', paras: [
+        'Ce site ne dépose aucun cookie sur votre appareil, ni technique, ni de mesure d’audience, ni publicitaire. Il n’utilise pas non plus le stockage local du navigateur.',
+        'C’est la raison pour laquelle aucune bannière de consentement ne vous est présentée : il n’y a rien à consentir.',
+      ] },
+      { heading: 'Comment le vérifier', paras: [
+        'Vous pouvez le constater vous-même : ouvrez les outils de développement de votre navigateur (touche F12), onglet « Application » ou « Stockage », rubrique « Cookies ». La liste correspondant à ce site est vide.',
+      ] },
+      { heading: 'Sites tiers', paras: [
+        'Si vous suivez un lien vers GitHub, LinkedIn ou Coursera, ces sites peuvent déposer leurs propres cookies une fois que vous êtes chez eux. Leur politique s’applique alors.',
+      ] },
+    ],
+  },
+  {
+    slug: 'cgu',
+    title: 'Conditions générales d’utilisation',
+    intro: 'Conditions applicables à la consultation de ce site.',
+    blocks: [
+      { heading: 'Objet', paras: [
+        'Les présentes conditions encadrent la consultation de ce portfolio. Le simple fait d’accéder au site vaut acceptation de ces conditions.',
+      ] },
+      { heading: 'Accès au site', paras: [
+        'L’accès est libre et gratuit. L’éditeur s’efforce de maintenir le site accessible, sans pouvoir le garantir : une interruption peut survenir pour maintenance, mise à jour ou raison technique indépendante de sa volonté.',
+      ] },
+      { heading: 'Utilisation du contenu', paras: [
+        'Les contenus sont mis à disposition pour information, dans un cadre scolaire et professionnel. Leur reproduction à des fins commerciales, ou leur réutilisation sans mention de l’auteur, n’est pas autorisée. La consultation, la citation et le partage du lien sont libres.',
+      ] },
+      { heading: 'Exactitude des informations', paras: [
+        'Les documents techniques et les articles de veille reflètent l’état des connaissances de l’auteur à leur date de rédaction, dans un cadre de formation. Ils ne constituent ni un conseil professionnel ni une documentation de référence, et peuvent devenir obsolètes.',
+      ] },
+      { heading: 'Contact', paras: [
+        'Toute question ou demande relative au site peut être adressée à haitem.bja.pro@gmail.com.',
+      ] },
+    ],
+  },
+];
+
+if (typeof module !== 'undefined')
+  module.exports = { DATA, ENTREPRISE, VEILLE, PROFILE, CERTIFICATIONS, CYBER, DOCUMENTS, LEGAL };

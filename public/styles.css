@@ -98,46 +98,46 @@
 /* --- Jetons de design ---------------------------------------------------- */
 
 :root {
-  /* Theme clair sobre : gris ardoise + bleu. Chaque jeton de texte a ete
-     verifie au contraste sur --bg ET sur --surface : tous au minimum AA
-     (4,5:1) pour le petit texte, la plupart AAA. Ne pas eclaircir un
-     --text-* sans recalculer le ratio. */
-  /* Fond gris-bleu franc plutot que blanc : les cartes (--surface, blanches)
-     s'en detachent, ce qui donne du relief sans ajouter de couleur criarde. */
-  --bg: #e9edf4;
-  --surface: #ffffff;
-  --image-bg: #e3e9f1;
-  --border: #d4dce7;
-  --divider: #e2e8f0;
-  --control: #dde4ee;
-  --control-hover: #ccd6e3;
-  --text: #1c2430;
-  --text-strong: #111820;
-  --text-control: #2c3845;
-  --text-body: #3d4a59;
-  --text-muted: #55636f;
-  /* Les deux tons ci-dessous sont au plancher AA sur --bg. Les eclaircir
-     les fait echouer : recalculer avant de toucher. */
-  --text-dim: #5c6874;
-  --text-faint: #5f6b77;
+  /* Theme sombre. Fond bleu nuit, cartes legerement plus claires, accents
+     clairs. Tous les jetons --text-* et --a-* ont ete verifies au contraste
+     sur --bg, sur --surface ET sur --control : minimum AA (4,5:1), la
+     plupart AAA. Ne pas assombrir un --text-* ni un accent sans recalculer
+     le ratio, sinon le texte repasse sous le seuil. */
+  --bg: #0b1020;
+  --surface: #141a2e;
+  --surface-2: #1b2340;
+  --image-bg: #1b2340;
+  --border: #26304d;
+  --divider: #222b45;
+  --control: #1b2340;
+  --control-hover: #27314f;
+
+  --text: #eef2fb;
+  --text-strong: #ffffff;
+  --text-control: #eef2fb;
+  --text-body: #c3cbdf;
+  --text-muted: #9aa5bf;
+  --text-dim: #8c98b4;
+  --text-faint: #8491ae;
 
   /* Accent par defaut. Chaque rubrique le redefinit plus bas (voir
      « Couleur par rubrique ») : tout ce qui utilise var(--a) suit alors
      automatiquement la teinte de sa section. */
-  --a: #1f5f9e;
-  --a-hover: #174b7e;
-  --a-wash: rgba(31, 95, 158, 0.08);
+  --a: #6aa9f0;
+  --a-hover: #93c2f6;
+  --a-wash: rgba(106, 169, 240, 0.12);
 
-  /* Famille d'accents, meme luminosite, tous verifies AA sur --bg et sur
-     --surface. Desatures exprès pour rester lisibles cote a cote. */
-  --a-blue: #1f5f9e;
-  --a-violet: #5b4593;
-  --a-teal: #0f6b63;
-  --a-green: #2a6a43;
-  --a-amber: #8a5510;
-  --a-rose: #9b3550;
+  /* Famille d'accents, luminosite proche, tous verifies AA minimum sur les
+     trois fonds. Volontairement doux : sur fond sombre, une couleur saturee
+     vibre et fatigue l'oeil. */
+  --a-blue: #6aa9f0;
+  --a-violet: #a78bfa;
+  --a-teal: #3fcfc0;
+  --a-green: #5ed89a;
+  --a-amber: #f0b45e;
+  --a-rose: #f27a9a;
 
-  --scrim: rgba(20, 28, 38, 0.55);
+  --scrim: rgba(4, 7, 16, 0.76);
 
   --sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -1948,71 +1948,15 @@ button {
 
 /* --- Accueil : barres de competences ------------------------------------- */
 
-.bars {
-  margin-top: 30px;
-  padding-top: 24px;
-  border-top: 1px solid var(--divider);
-}
 
-.bars__label {
-  display: block;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  margin-bottom: 18px;
-}
 
-.bars__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px 28px;
-}
 
-.bar__head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
-  margin-bottom: 7px;
-}
 
-.bar__label {
-  font-size: 13px;
-  color: var(--text);
-}
 
-.bar__level {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  color: var(--text-faint);
-  flex-shrink: 0;
-}
 
-.bar__track {
-  display: flex;
-  gap: 4px;
-}
 
-.bar__seg {
-  height: 5px;
-  flex: 1;
-  border-radius: 2px;
-  background: var(--control);
-}
 
-.bar__seg--on {
-  background: var(--a);
-}
 
-.bar__note {
-  display: block;
-  margin-top: 7px;
-  font-size: 11.5px;
-  color: var(--text-faint);
-  line-height: 1.45;
-}
 
 /* --- Realisations en entreprise ------------------------------------------ */
 
@@ -2379,10 +2323,6 @@ button {
     text-align: left;
   }
 
-  .bars__grid {
-    grid-template-columns: 1fr;
-  }
-
   .legal {
     padding: 80px 18px 40px;
   }
@@ -2404,50 +2344,50 @@ button {
 
 #accueil {
   --a: var(--a-blue);
-  --a-hover: #174b7e;
-  --a-wash: rgba(31, 95, 158, 0.09);
+  --a-hover: #93c2f6;
+  --a-wash: rgba(106, 169, 240, 0.13);
 }
 
 #competences {
   --a: var(--a-violet);
-  --a-hover: #473574;
-  --a-wash: rgba(91, 69, 147, 0.09);
+  --a-hover: #c4b0fc;
+  --a-wash: rgba(167, 139, 250, 0.13);
 }
 
 #centre {
   --a: var(--a-teal);
-  --a-hover: #0b544e;
-  --a-wash: rgba(15, 107, 99, 0.09);
+  --a-hover: #6fdcd1;
+  --a-wash: rgba(63, 207, 192, 0.13);
 }
 
 #entreprise {
   --a: var(--a-green);
-  --a-hover: #215435;
-  --a-wash: rgba(42, 106, 67, 0.09);
+  --a-hover: #8ae5b7;
+  --a-wash: rgba(94, 216, 154, 0.13);
 }
 
 #veille {
   --a: var(--a-amber);
-  --a-hover: #6e430c;
-  --a-wash: rgba(138, 85, 16, 0.09);
+  --a-hover: #f5cb8c;
+  --a-wash: rgba(240, 180, 94, 0.13);
 }
 
 #cybersecurite {
   --a: var(--a-rose);
-  --a-hover: #7d2a40;
-  --a-wash: rgba(155, 53, 80, 0.09);
+  --a-hover: #f6a0b7;
+  --a-wash: rgba(242, 122, 154, 0.13);
 }
 
 #documents {
   --a: var(--a-blue);
-  --a-hover: #174b7e;
-  --a-wash: rgba(31, 95, 158, 0.09);
+  --a-hover: #93c2f6;
+  --a-wash: rgba(106, 169, 240, 0.13);
 }
 
 #contact {
   --a: var(--a-teal);
-  --a-hover: #0b544e;
-  --a-wash: rgba(15, 107, 99, 0.09);
+  --a-hover: #6fdcd1;
+  --a-wash: rgba(63, 207, 192, 0.13);
 }
 
 /* Filet de couleur en tete de section : rappelle la teinte de la rubrique. */
@@ -2539,25 +2479,10 @@ button {
 
 /* --- Barres de competences : la teinte dit le niveau --------------------- */
 
-.bar[data-level="4"] {
-  --a: var(--a-green);
-}
 
-.bar[data-level="3"] {
-  --a: var(--a-blue);
-}
 
-.bar[data-level="2"] {
-  --a: var(--a-amber);
-}
 
-.bar[data-level="1"] {
-  --a: var(--a-rose);
-}
 
-.bar__level {
-  color: var(--a);
-}
 
 /* --- Cybersecurite : vert pour ce qui est obtenu ------------------------- */
 
@@ -2574,4 +2499,591 @@ button {
 
 .foot {
   border-top: 2px solid var(--a);
+}
+
+/* ==========================================================================
+   Accueil : banniere, pastilles, boutons, chiffres cles
+   ========================================================================== */
+
+.hero {
+  background:
+    radial-gradient(120% 140% at 0% 0%, var(--a-wash), transparent 62%),
+    var(--surface);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--a);
+  border-radius: var(--radius);
+  padding: 38px 30px 32px;
+  margin-bottom: 18px;
+}
+
+.hero__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  color: var(--text-body);
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+}
+
+.pill--live {
+  border-color: var(--a-green);
+  color: var(--a-green);
+}
+
+.pill--live .dot {
+  background: var(--a-green);
+}
+
+.hero__hi {
+  margin: 0 0 2px;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+}
+
+.hero h1 {
+  margin: 0 0 6px;
+  color: var(--text-strong);
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+}
+
+.hero__role {
+  margin: 0 0 14px;
+  color: var(--a);
+  font-family: var(--mono);
+  font-size: clamp(0.95rem, 2vw, 1.12rem);
+  letter-spacing: -0.01em;
+}
+
+.hero__intro {
+  margin: 0 0 24px;
+  max-width: 62ch;
+  color: var(--text-body);
+  font-size: 0.97rem;
+  line-height: 1.62;
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--control);
+  color: var(--text);
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--control-hover);
+  border-color: var(--a);
+  transform: translateY(-1px);
+}
+
+.btn--primary {
+  background: var(--a);
+  border-color: var(--a);
+  color: #0b1020;
+  font-weight: 600;
+}
+
+.btn--primary:hover {
+  background: var(--a-hover);
+  border-color: var(--a-hover);
+}
+
+/* Chiffres cles : ils ne sont la que s'ils sont verifiables ailleurs sur le
+   site. Un chiffre sans realisation derriere se voit tout de suite a l'oral. */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 14px;
+  background: var(--surface);
+}
+
+.stat strong {
+  color: var(--a);
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.stat span {
+  color: var(--text-dim);
+  font-size: 0.73rem;
+  line-height: 1.35;
+}
+
+/* ==========================================================================
+   Competences techniques : contexte au lieu d'un niveau
+
+   Les anciennes barres de progression affichaient une note auto-attribuee,
+   invendable a l'oral (« pourquoi 3 et pas 4 ? »). Ici chaque competence
+   porte le contexte ou elle a ete mise en oeuvre : c'est verifiable.
+   ========================================================================== */
+
+.skills {
+  margin-top: 26px;
+  padding-top: 26px;
+  border-top: 1px solid var(--divider);
+}
+
+.skills__head {
+  margin-bottom: 20px;
+}
+
+.skills__title {
+  margin: 0 0 6px;
+  color: var(--text-strong);
+  font-size: 1.04rem;
+  letter-spacing: -0.01em;
+}
+
+.skills__note {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 14px;
+}
+
+.sk {
+  padding: 16px 16px 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.sk__group {
+  margin: 0 0 12px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--divider);
+  color: var(--a);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sk__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sk__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--divider);
+}
+
+.sk__item:last-child {
+  border-bottom: 0;
+}
+
+.sk__name {
+  color: var(--text-body);
+  font-size: 0.87rem;
+  line-height: 1.4;
+}
+
+.sk__where {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tag {
+  padding: 2px 7px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Bloc 1 : les six competences du referentiel
+   ========================================================================== */
+
+.lede {
+  max-width: 72ch;
+  margin-bottom: 24px;
+}
+
+.lede p {
+  margin: 0 0 10px;
+  color: var(--text-body);
+  font-size: 0.95rem;
+  line-height: 1.68;
+}
+
+.lede em {
+  color: var(--text);
+  font-style: italic;
+}
+
+.lede__cover {
+  padding: 11px 14px;
+  background: var(--a-wash);
+  border-left: 2px solid var(--a);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.lede__cover strong {
+  color: var(--a);
+}
+
+.bloc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 14px;
+}
+
+.bloc {
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  scroll-margin-top: 20px;
+}
+
+.bloc:target {
+  border-color: var(--a);
+  box-shadow: 0 0 0 1px var(--a);
+}
+
+.bloc__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin-bottom: 13px;
+}
+
+.bloc__code {
+  flex: none;
+  padding: 3px 9px;
+  background: var(--a);
+  border-radius: 3px;
+  color: #0b1020;
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.bloc__title {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 0.97rem;
+  line-height: 1.34;
+  letter-spacing: -0.01em;
+}
+
+.bloc__items {
+  flex: 1 1 auto;
+  margin: 0 0 15px;
+  padding: 0;
+  list-style: none;
+}
+
+.bloc__items li {
+  position: relative;
+  padding: 0 0 6px 15px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.bloc__items li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.58em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--a);
+  opacity: 0.6;
+}
+
+.bloc__proof {
+  padding-top: 13px;
+  border-top: 1px solid var(--divider);
+}
+
+.bloc__proof-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--a);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.bloc__proof-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bloc__proof-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 3px 0;
+  color: var(--text-body);
+  font-size: 0.8rem;
+  line-height: 1.44;
+}
+
+/* Pastille de contexte : pleine pour l'entreprise, creuse pour le centre de
+   formation. Le jury distingue d'un coup d'oeil le vecu professionnel. */
+
+.bloc__dot {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1px solid var(--a);
+  transform: translateY(-1px);
+}
+
+.bloc__dot--entreprise {
+  background: var(--a);
+}
+
+/* ==========================================================================
+   Matrice realisations x competences
+   ========================================================================== */
+
+.section__sub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 32px 0 14px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.section__sub-title {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+}
+
+.section__sub-link {
+  color: var(--a);
+  font-size: 0.83rem;
+  text-decoration: none;
+}
+
+.section__sub-link:hover {
+  text-decoration: underline;
+}
+
+.matrix {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.matrix__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.83rem;
+}
+
+.matrix__caption {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--divider);
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.matrix__table th,
+.matrix__table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--divider);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.matrix__table tbody tr:last-child th,
+.matrix__table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.matrix__table thead th {
+  background: var(--surface-2);
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.matrix__rea {
+  min-width: 230px;
+  color: var(--text-body);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.matrix__table tbody .matrix__rea {
+  color: var(--text);
+}
+
+.matrix__ctx {
+  white-space: nowrap;
+}
+
+.matrix__place {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  font-size: 0.7rem;
+}
+
+.matrix__place--entreprise {
+  border-color: var(--a-green);
+  color: var(--a-green);
+}
+
+.matrix__place--centre {
+  border-color: var(--a-blue);
+  color: var(--a-blue);
+}
+
+.matrix__period {
+  display: block;
+  margin-top: 3px;
+  color: var(--text-faint);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+}
+
+.matrix__code {
+  width: 46px;
+  text-align: center !important;
+}
+
+.matrix__code a {
+  color: var(--text-dim);
+  font-family: var(--mono);
+  text-decoration: none;
+}
+
+.matrix__code a:hover {
+  color: var(--a);
+}
+
+.matrix__on,
+.matrix__off {
+  text-align: center !important;
+}
+
+.matrix__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: var(--a-wash);
+  color: var(--a);
+  font-size: 0.8rem;
+}
+
+.matrix__off {
+  color: var(--border);
+}
+
+/* ==========================================================================
+   Adaptations petits ecrans
+   ========================================================================== */
+
+@media (max-width: 860px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .hero {
+    padding: 28px 18px 24px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .sk__item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .matrix__rea {
+    min-width: 170px;
+  }
 }

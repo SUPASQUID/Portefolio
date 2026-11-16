@@ -266,19 +266,192 @@ const PROFILE = {
     { name: 'Newsletters', role: 'Veille hebdomadaire LeMagIT et Bleeping Computer', url: null },
   ],
 
-  /* Barres de compétences (niveau sur 4). Auto-évaluation : à ajuster avant
-     l’oral, chaque niveau doit pouvoir être défendu par un projet ou une
-     expérience présente sur ce site. */
-  skillBars: [
-    { label: 'Support et dépannage', level: 4, note: 'Service Civique, stage, interventions régulières' },
-    { label: 'Réseau — adressage, DHCP, VLAN', level: 3, note: 'Pont Wi-Fi, DHCP sur Windows Server' },
-    { label: 'Virtualisation — VirtualBox, Proxmox', level: 3, note: 'Laboratoire NAT, hyperviseur Proxmox VE 9' },
-    { label: 'Systèmes Windows — client et serveur', level: 3, note: 'Windows 11, Windows Server 2022' },
-    { label: 'Documentation technique', level: 3, note: 'Comptes-rendus et fiches projet joints' },
-    { label: 'Linux', level: 2, note: 'Distributions légères, ligne de commande Proxmox' },
-    { label: 'Sécurité et RGPD', level: 2, note: 'WPA3, effacement sécurisé, veille cyber' },
+  /**
+   * Competences techniques, groupees par famille.
+   *
+   * Pas de note ni de barre : chaque ligne porte le contexte dans lequel la
+   * competence a ete mise en oeuvre (`where`). Le jury peut donc remonter de
+   * la competence a la preuve, et rien n'est auto-declare sans support.
+   * Les valeurs de `where` doivent correspondre a un travail reellement
+   * present sur le site.
+   */
+  skillGroups: [
+    {
+      group: 'Systemes',
+      items: [
+        { name: 'Windows 10 / 11', where: ['Stage', 'TP centre', 'Service civique'] },
+        { name: 'Windows Server 2022', where: ['TP centre'] },
+        { name: 'Linux \u2014 Debian, distributions legeres', where: ['Stage', 'Proxmox'] },
+        { name: 'Installation et reinstallation d\u2019OS', where: ['Stage'] },
+      ],
+    },
+    {
+      group: 'Reseau',
+      items: [
+        { name: 'Adressage IP et sous-reseaux', where: ['TP centre'] },
+        { name: 'DHCP', where: ['Pont Wi-Fi', 'TP centre'] },
+        { name: 'Pont Wi-Fi point a point', where: ['Pont Wi-Fi'] },
+        { name: 'Reseau NAT et isolation de laboratoire', where: ['VirtualBox'] },
+      ],
+    },
+    {
+      group: 'Virtualisation',
+      items: [
+        { name: 'VirtualBox', where: ['TP centre'] },
+        { name: 'Proxmox VE 9 \u2014 interface web', where: ['Proxmox'] },
+        { name: 'Proxmox VE 9 \u2014 ligne de commande', where: ['Proxmox'] },
+      ],
+    },
+    {
+      group: 'Support et materiel',
+      items: [
+        { name: 'Diagnostic et depannage poste de travail', where: ['Stage', 'Service civique'] },
+        { name: 'Remplacement de composants \u2014 SSD, RAM, ventilation', where: ['Stage'] },
+        { name: 'Accompagnement et formation des utilisateurs', where: ['Stage'] },
+      ],
+    },
+    {
+      group: 'Securite et donnees',
+      items: [
+        { name: 'Effacement securise des donnees', where: ['Stage'] },
+        { name: 'RGPD applique a la revalorisation de materiel', where: ['Stage'] },
+        { name: 'Sensibilisation hameconnage et mots de passe', where: ['Stage'] },
+        { name: 'Chiffrement Wi-Fi WPA3', where: ['Pont Wi-Fi'] },
+      ],
+    },
+    {
+      group: 'Methode',
+      items: [
+        { name: 'Documentation technique et comptes-rendus', where: ['TP centre', 'Proxmox'] },
+        { name: 'Veille informationnelle structuree', where: ['Veille'] },
+        { name: 'Referencement et presence en ligne', where: ['Referencement'] },
+      ],
+    },
   ],
 };
+
+/**
+ * BLOC 1 du referentiel BTS SIO \u2014 "Support et mise a disposition de
+ * services informatiques".
+ *
+ * Les intitules et les sous-competences sont repris mot pour mot des colonnes
+ * C a H du tableau de synthese officiel : ce sont les termes du referentiel,
+ * pas une reformulation. L'ordre C1..C6 suit celui du tableau.
+ */
+const BLOC1 = [
+  {
+    code: 'C1',
+    title: 'Gerer le patrimoine informatique',
+    items: [
+      'Recenser et identifier les ressources numeriques',
+      'Exploiter des referentiels, normes et standards adoptes par le prestataire informatique',
+      'Mettre en place et verifier les niveaux d\u2019habilitation associes a un service',
+      'Verifier les conditions de la continuite d\u2019un service informatique',
+      'Gerer des sauvegardes',
+      'Verifier le respect des regles d\u2019utilisation des ressources numeriques',
+    ],
+  },
+  {
+    code: 'C2',
+    title: 'Repondre aux incidents et aux demandes d\u2019assistance et d\u2019evolution',
+    items: [
+      'Collecter, suivre et orienter des demandes',
+      'Traiter des demandes concernant les services reseau et systeme, applicatifs',
+      'Traiter des demandes concernant les applications',
+    ],
+  },
+  {
+    code: 'C3',
+    title: 'Developper la presence en ligne de l\u2019organisation',
+    items: [
+      'Participer a la valorisation de l\u2019image de l\u2019organisation sur les medias numeriques en tenant compte du cadre juridique et des enjeux economiques',
+      'Referencer les services en ligne de l\u2019organisation et mesurer leur visibilite',
+      'Participer a l\u2019evolution d\u2019un site Web exploitant les donnees de l\u2019organisation',
+    ],
+  },
+  {
+    code: 'C4',
+    title: 'Travailler en mode projet',
+    items: [
+      'Analyser les objectifs et les modalites d\u2019organisation d\u2019un projet',
+      'Planifier les activites',
+      'Evaluer les indicateurs de suivi d\u2019un projet et analyser les ecarts',
+    ],
+  },
+  {
+    code: 'C5',
+    title: 'Mettre a disposition des utilisateurs un service informatique',
+    items: [
+      'Realiser les tests d\u2019integration et d\u2019acceptation d\u2019un service',
+      'Deployer un service',
+      'Accompagner les utilisateurs dans la mise en place d\u2019un service',
+    ],
+  },
+  {
+    code: 'C6',
+    title: 'Organiser son developpement professionnel',
+    items: [
+      'Mettre en place son environnement d\u2019apprentissage personnel',
+      'Mettre en oeuvre des outils et strategies de veille informationnelle',
+      'Gerer son identite professionnelle',
+      'Developper son projet professionnel',
+    ],
+  },
+];
+
+/**
+ * Matrice realisations x competences, reprise a l'identique du tableau de
+ * synthese (fichier Excel remis au jury).
+ *
+ * ATTENTION : ce tableau et le PDF du tableau de synthese doivent dire la
+ * meme chose. Toute croix ajoutee ici doit l'etre aussi dans le fichier
+ * Excel, sinon le site contredit le document officiel.
+ */
+const SYNTHESE = [
+  {
+    label: 'Pont Wi-Fi entre deux batiments',
+    place: 'centre',
+    period: '15/02/2026',
+    codes: ['C1', 'C2', 'C4', 'C5'],
+  },
+  {
+    label: 'Depannage et diagnostic informatique',
+    place: 'centre',
+    period: 'annee 1',
+    codes: ['C2', 'C5'],
+  },
+  {
+    label: 'Mise en place du referencement en ligne',
+    place: 'centre',
+    period: '19/03/2026',
+    codes: ['C1', 'C3', 'C4', 'C6'],
+  },
+  {
+    label: 'Machine virtuelle VirtualBox sur reseau NAT',
+    place: 'centre',
+    period: '25/03/2026',
+    codes: ['C1', 'C2', 'C4', 'C5', 'C6'],
+  },
+  {
+    label: 'Administration d\u2019un hyperviseur Proxmox VE 9',
+    place: 'centre',
+    period: '22/09/2026',
+    codes: ['C1', 'C2', 'C5', 'C6'],
+  },
+  {
+    label: 'Stage \u2014 revalorisation de postes informatiques',
+    place: 'entreprise',
+    period: '06/07 au 07/08/2026',
+    codes: ['C1', 'C2', 'C5', 'C6'],
+  },
+  {
+    label: 'Stage \u2014 mediation numerique et e-inclusion',
+    place: 'entreprise',
+    period: '06/07 au 07/08/2026',
+    codes: ['C2', 'C5'
+, 'C6'],
+  },
+];
 
 /**
  * CYBERSECURITE — rubrique imposée par la maquette du portfolio.
@@ -449,4 +622,7 @@ const LEGAL = [
 ];
 
 if (typeof module !== 'undefined')
-  module.exports = { DATA, ENTREPRISE, VEILLE, PROFILE, CERTIFICATIONS, CYBER, DOCUMENTS, LEGAL };
+  module.exports = {
+    DATA, ENTREPRISE, VEILLE, PROFILE, CERTIFICATIONS, CYBER, DOCUMENTS, LEGAL,
+    BLOC1, SYNTHESE,
+  };

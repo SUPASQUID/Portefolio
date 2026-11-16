@@ -31,6 +31,8 @@ const {
   CYBER,
   DOCUMENTS,
   LEGAL,
+  BLOC1,
+  SYNTHESE,
 } = require('./src/data.js');
 
 /* Adresse publique du site — sert au lien canonique, à Open Graph et au
@@ -40,8 +42,8 @@ const SITE = process.env.SITE_URL || 'https://bejaoui-haitem.vercel.app';
 const OUT = path.join(__dirname, 'public');
 
 /* Teintes reprises de public/styles.css (jetons --bg et --a). */
-const THEME_BG = '#f7f8fa';
-const THEME_A = '#1f5f9e';
+const THEME_BG = '#0b1020';
+const THEME_A = '#6aa9f0';
 
 /* --- Utilitaires --------------------------------------------------------- */
 
@@ -112,24 +114,116 @@ const sidebar = () => `
       </div>
     </aside>`;
 
-/** Barre de compétence : niveau sur 4, rendu en segments. */
-const skillBar = (s) => `
-          <div class="bar" data-level="${s.level}">
-            <div class="bar__head">
-              <span class="bar__label">${esc(s.label)}</span>
-              <span class="bar__level" aria-hidden="true">${s.level}/4</span>
-            </div>
-            <div class="bar__track" role="img"
-                 aria-label="${esc(s.label)} : niveau ${s.level} sur 4">
-              ${[1, 2, 3, 4]
+/* ---------------------------------------------------------------------------
+   Competences
+   ------------------------------------------------------------------------- */
+
+/**
+ * Famille de competences techniques.
+ *
+ * Remplace les anciennes barres de progression : plutot qu'un niveau
+ * auto-declare, chaque ligne affiche le contexte ou la competence a ete
+ * mise en oeuvre. L'information est verifiable, ce que le niveau n'etait pas.
+ */
+const skillGroupCard = (g) => `
+          <article class="sk">
+            <h3 class="sk__group">${esc(g.group)}</h3>
+            <ul class="sk__list">
+              ${g.items
                 .map(
-                  (n) =>
-                    `<span class="bar__seg${n <= s.level ? ' bar__seg--on' : ''}"></span>`
+                  (it) => `<li class="sk__item">
+                <span class="sk__name">${esc(it.name)}</span>
+                <span class="sk__where">${it.where
+                  .map((w) => `<span class="tag">${esc(w)}</span>`)
+                  .join('')}</span>
+              </li>`
                 )
-                .join('')}
-            </div>
-            <span class="bar__note">${esc(s.note)}</span>
-          </div>`;
+                .join('\n              ')}
+            </ul>
+          </article>`;
+
+/** Realisations du tableau de synthese qui attestent une competence donnee. */
+const proofsFor = (code) => SYNTHESE.filter((r) => r.codes.indexOf(code) !== -1);
+
+/** Nombre de competences du bloc 1 attestees par au moins une realisation. */
+const blocCovered = BLOC1.filter((b) => proofsFor(b.code).length > 0).length;
+
+/**
+ * Carte d'une competence du bloc 1.
+ *
+ * L'intitule et les sous-competences sont ceux du referentiel ; la liste
+ * "atteste par" est calculee depuis SYNTHESE, donc elle ne peut pas diverger
+ * de la matrice affichee plus bas ni du tableau de synthese officiel.
+ */
+const blocCard = (b) => {
+  const proofs = proofsFor(b.code);
+  return `
+          <article class="bloc" id="bloc-${b.code}">
+            <header class="bloc__head">
+              <span class="bloc__code">${esc(b.code)}</span>
+              <h3 class="bloc__title">${esc(b.title)}</h3>
+            </header>
+            <ul class="bloc__items">
+              ${b.items.map((i) => `<li>${esc(i)}</li>`).join('\n              ')}
+            </ul>
+            <footer class="bloc__proof">
+              <span class="bloc__proof-label">Attestee par ${proofs.length}
+                realisation${proofs.length > 1 ? 's' : ''}</span>
+              <ul class="bloc__proof-list">
+                ${proofs
+                  .map(
+                    (p) =>
+                      `<li><span class="bloc__dot bloc__dot--${esc(p.place)}"></span>${esc(p.label)}</li>`
+                  )
+                  .join('\n                ')}
+              </ul>
+            </footer>
+          </article>`;
+};
+
+/**
+ * Matrice realisations x competences : la transposition HTML du tableau de
+ * synthese remis au jury. Les en-tetes de colonne renvoient a la carte de la
+ * competence correspondante.
+ */
+const matrix = () => `
+        <div class="matrix">
+          <table class="matrix__table">
+            <caption class="matrix__caption">Chaque realisation et les competences
+              du bloc 1 qu'elle mobilise. Source : tableau de synthese des
+              realisations professionnelles.</caption>
+            <thead>
+              <tr>
+                <th scope="col" class="matrix__rea">Realisation</th>
+                <th scope="col" class="matrix__ctx">Contexte</th>
+                ${BLOC1.map(
+                  (b) =>
+                    `<th scope="col" class="matrix__code"><a href="#bloc-${esc(
+                      b.code
+                    )}" title="${esc(b.title)}">${esc(b.code)}</a></th>`
+                ).join('\n                ')}
+              </tr>
+            </thead>
+            <tbody>
+              ${SYNTHESE.map(
+                (r) => `<tr>
+                <th scope="row" class="matrix__rea">${esc(r.label)}</th>
+                <td class="matrix__ctx"><span class="matrix__place matrix__place--${esc(
+                  r.place
+                )}">${r.place === 'centre' ? 'Centre' : 'Entreprise'}</span>
+                  <span class="matrix__period">${esc(r.period)}</span></td>
+                ${BLOC1.map((b) =>
+                  r.codes.indexOf(b.code) !== -1
+                    ? `<td class="matrix__on"><span class="matrix__mark" role="img" aria-label="${esc(
+                        b.code
+                      )} mobilisee">&#10003;</span></td>`
+                    : '<td class="matrix__off"><span aria-hidden="true">&middot;</span></td>'
+                ).join('\n                ')}
+              </tr>`
+              ).join('\n              ')}
+            </tbody>
+          </table>
+        </div>`;
 
 const projectCard = (p, i) => `
           <article class="card" data-cat="${esc(p.cat)}">
@@ -476,13 +570,29 @@ ${sidebar()}
 
     <section class="section section--first" id="accueil" aria-labelledby="accueil-title">
       <header class="hero">
-        <span class="hero__kicker">Portfolio · Réseaux &amp; systèmes</span>
-        <h1 id="accueil-title">${esc(PROFILE.headline)}</h1>
-        <p>${esc(PROFILE.intro)}</p>
-        <div class="hero__status">
-          <span class="dot"></span>
-          <span>${ord(PROFILE.status)}</span>
+        <div class="hero__pills">
+          <span class="pill">${esc(PROFILE.formation)} &middot; promotion 2025&ndash;2027</span>
+          <span class="pill pill--live"><span class="dot"></span>Alternance recherchee</span>
         </div>
+        <p class="hero__hi">Bonjour, je suis</p>
+        <h1 id="accueil-title">${esc(PROFILE.name)}</h1>
+        <p class="hero__role">${esc(PROFILE.headline)}</p>
+        <p class="hero__intro">${esc(PROFILE.intro)}</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#centre">Voir mes realisations</a>
+          <a class="btn" href="${esc(PROFILE.cv)}" target="_blank" rel="noopener">Mon CV &#8595;</a>
+          <a class="btn" href="#contact">Me contacter</a>
+        </div>
+        <ul class="stats">
+          <li class="stat"><strong>${SYNTHESE.length}</strong>
+            <span>realisations professionnelles</span></li>
+          <li class="stat"><strong>${blocCovered}/${BLOC1.length}</strong>
+            <span>competences du bloc 1 couvertes</span></li>
+          <li class="stat"><strong>5</strong>
+            <span>semaines en entreprise</span></li>
+          <li class="stat"><strong>15&ndash;20</strong>
+            <span>usagers accompagnes en stage</span></li>
+        </ul>
       </header>
 
       <div class="ident">
@@ -491,28 +601,34 @@ ${sidebar()}
           <p>${esc(PROFILE.motivations.paragraphs[0])}</p>
         </div>
         <div class="ident__card">
-          <span class="ident__label">École</span>
+          <span class="ident__label">Ecole</span>
           <p>My Cyber School, La Valette-du-Var. ${ord(PROFILE.year)} de BTS Services
              Informatiques aux Organisations.</p>
         </div>
         <div class="ident__card">
           <span class="ident__label">Option</span>
-          <p>SISR — Solutions d’Infrastructure, Systèmes et Réseaux. Administration,
-             sécurisation et maintien en condition opérationnelle.</p>
+          <p>SISR &mdash; Solutions d&rsquo;Infrastructure, Systemes et Reseaux. Administration,
+             securisation et maintien en condition operationnelle.</p>
         </div>
         <div class="ident__card ident__card--accent">
           <span class="ident__label">Alternance</span>
           <p>${esc(PROFILE.motivations.objective)}</p>
           <a class="ident__cv" href="${esc(PROFILE.cv)}" target="_blank" rel="noopener">
-            Consulter mon CV ↓</a>
+            Consulter mon CV &#8595;</a>
         </div>
       </div>
 
-      <div class="bars">
-        <span class="bars__label">Barres de compétences</span>
-        <div class="bars__grid">${PROFILE.skillBars.map(skillBar).join('')}
+      <div class="skills">
+        <div class="skills__head">
+          <h2 class="skills__title">Competences techniques</h2>
+          <p class="skills__note">Chaque competence renvoie au contexte dans lequel
+             elle a ete mise en oeuvre &mdash; stage, travaux en centre de formation
+             ou service civique.</p>
+        </div>
+        <div class="skills__grid">${PROFILE.skillGroups.map(skillGroupCard).join('')}
         </div>
       </div>
+
     </section>
 
     <section class="section" id="competences" aria-labelledby="competences-title">
@@ -520,35 +636,27 @@ ${sidebar()}
         <h2 id="competences-title"><span class="section__num">02</span>Compétences BTS SIO</h2>
         <span class="section__meta">tableau de synthèse · bloc 1</span>
       </div>
-      <div class="col-2">
-        <div class="prose">
-          <p>Le tableau de synthèse des réalisations professionnelles récapitule, pour
-             chaque réalisation, les compétences du référentiel BTS SIO mises en œuvre :
-             gérer le patrimoine informatique, répondre aux incidents et aux demandes
-             d’assistance, développer la présence en ligne de l’organisation, travailler
-             en mode projet, mettre à disposition des utilisateurs un service informatique
-             et organiser son développement professionnel.</p>
-          <p>Il couvre les réalisations conduites en centre de formation comme celles
-             menées en milieu professionnel, et sert de support à l’épreuve E4.</p>
-        </div>
-        <div class="panel-stack">
-          <a class="box box--filled box--link" href="documents/tableau-synthese-e4.pdf"
-             target="_blank" rel="noopener">
-            <span class="box__label box__label--accent">Document</span>
-            <span class="box__line">Tableau de synthèse des réalisations professionnelles ↓</span>
-          </a>
-          <div class="box">
-            <span class="box__label">Ce qui me motive</span>
-            ${PROFILE.motivations.drivers
-              .map((d, i) =>
-                i === 0
-                  ? `<span class="box__line">${esc(d)}</span>`
-                  : `<div class="box__rule"></div><span class="box__line">${esc(d)}</span>`
-              )
-              .join('\n            ')}
-          </div>
-        </div>
+      <div class="lede">
+        <p>L&rsquo;epreuve E4 porte sur le bloc 1 du referentiel, <em>support et mise
+           a disposition de services informatiques</em>. Il se decompose en six
+           competences. Les intitules ci-dessous sont ceux du referentiel ; sous
+           chacun figurent les realisations de ce portfolio qui l&rsquo;attestent.</p>
+        <p class="lede__cover"><strong>${blocCovered} des ${BLOC1.length} competences
+           du bloc sont couvertes</strong> par ${SYNTHESE.length} realisations, dont
+           ${SYNTHESE.filter((r) => r.place === 'entreprise').length} en milieu
+           professionnel.</p>
       </div>
+
+      <div class="bloc-grid">${BLOC1.map(blocCard).join('')}
+      </div>
+
+      <div class="section__sub">
+        <h3 class="section__sub-title">Matrice realisations &times; competences</h3>
+        <a class="section__sub-link" href="documents/tableau-synthese-e4.pdf"
+           target="_blank" rel="noopener">Tableau de synthese (PDF) &#8595;</a>
+      </div>
+      ${matrix()}
+
     </section>
 
     <section class="section" id="centre" aria-labelledby="centre-title">

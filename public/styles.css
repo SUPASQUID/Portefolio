@@ -3087,3 +3087,85 @@ button {
     min-width: 170px;
   }
 }
+
+/* ==========================================================================
+   Zones cliquables
+
+   Chaque carte porte un bouton reel autour de son titre, mais les mentions
+   « detail », « lire » et les fleches n'etaient que du decor : on cliquait
+   dessus et rien ne se passait. Plutot que d'ajouter des gestionnaires de
+   clic, on etend la zone de frappe du bouton existant a toute la carte
+   (procede dit du « lien etire ») : le bouton reste le seul element
+   focusable et annonce au lecteur d'ecran, mais toute la carte declenche
+   son activation.
+
+   Condition a respecter si l'on ajoute un lien dans une de ces cartes :
+   lui donner `position: relative` et un `z-index` superieur a 2, sinon la
+   surface du bouton le recouvre et le rend inatteignable.
+   ========================================================================== */
+
+.card,
+.mission,
+.veille__item,
+.veille__row {
+  position: relative;
+}
+
+.card__trigger::after,
+.mission__trigger::after,
+.veille__trigger::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+/* Le curseur doit annoncer la zone avant le clic, sinon l'utilisateur ne
+   sait pas que la carte entiere repond. */
+
+.card,
+.mission,
+.veille__item,
+.veille__row,
+.card__more,
+.mission__more,
+.veille__read,
+.veille__row-arrow {
+  cursor: pointer;
+}
+
+/* Reaction au survol sur l'ensemble de la carte, et non sur le seul titre. */
+
+.card:hover .card__more,
+.mission:hover .mission__more,
+.veille__item:hover .veille__read {
+  color: var(--a);
+}
+
+.veille__row:hover .veille__row-arrow {
+  color: var(--a);
+  transform: translateX(2px);
+}
+
+.veille__row-arrow {
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+/* Le focus clavier porte sur le bouton, mais c'est la carte qu'il faut
+   designer : sans cela, l'anneau de focus se dessine autour du seul titre
+   et la cible reelle reste invisible. */
+
+.card:focus-within,
+.mission:focus-within,
+.veille__item:focus-within,
+.veille__row:focus-within {
+  outline: 2px solid var(--a);
+  outline-offset: 2px;
+}
+
+.card__trigger:focus-visible,
+.mission__trigger:focus-visible,
+.veille__trigger:focus-visible {
+  outline: none;
+}

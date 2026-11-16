@@ -261,7 +261,7 @@ const PROFILE = {
      compte reste à renseigner — mettre l’adresse dans `url` et le lien
      apparaîtra automatiquement. */
   veilleTools: [
-    { name: 'Pearltrees', role: 'Collecte et classement thématique des sources', url: null },
+    { name: 'Pearltrees', role: 'Collecte et classement thématique des sources', url: 'https://www.pearltrees.com/haitembejaoui' },
     { name: 'Flux RSS', role: 'Suivi quotidien des bulletins ANSSI et CERT-FR', url: null },
     { name: 'Newsletters', role: 'Veille hebdomadaire LeMagIT et Bleeping Computer', url: null },
   ],
